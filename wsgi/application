@@ -1,8 +1,11 @@
 #!/usr/bin/python
+import os, sys, utilities
+# missing web module fix
+abspath = os.path.dirname(__file__)
+sys.path.append(abspath)
+os.chdir(abspath)
 from web import wsgiserver
 import web
-import utilities
-import os
 
 #DOtcloud
 #HOME = os.getenv('DOTCLOUD_PYTHON_HTTP_URL', 'http://clsi-pacbard.dotcloud.com/')
