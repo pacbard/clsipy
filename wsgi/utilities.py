@@ -1,10 +1,16 @@
-import untangle
 import base64
 from subprocess import call
 from os.path import abspath, dirname, join
 import os
 import uuid
 import shutil
+import sys
+
+# Missing untangle module fix
+abspath = os.path.dirname(__file__)
+sys.path.append(abspath)
+os.chdir(abspath)
+import untangle
 
 TMP = '/home/dotcloud/tmp/'
 PUBLIC = '/home/dotcloud/current/static/download/'
