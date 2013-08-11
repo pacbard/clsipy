@@ -20,7 +20,7 @@ import utilities
 #DIR = '/home/dotcloud/current/'
 #Openshift
 HOME = os.environ['OPENSHIFT_APP_DNS']
-DIR = os.environ['OPENSHIFT_REPO_DIR']+'/wgsi/'
+DIR = os.environ['OPENSHIFT_REPO_DIR']+'wgsi/'
 
 urls = (
     '/', 'index',
@@ -31,13 +31,16 @@ urls = (
 
 render = web.template.render(DIR+'templates/')
 
+def 404():
+    return web.notfound()
+
 class index:
     def GET(self):
         try:
             f = open(DIR+'static/index.html', 'r')
             return f.read()
         except:
-            return DIR +'static/index.html not found' # you can send an 404 error here if you want
+            return 404() 
         
 class compile:
     def GET(self):
@@ -60,7 +63,7 @@ class download:
             f = open(DIR+'static/download'+'/'+file, 'r')
             return f.read()
         except:
-            return 'File not found' # you can send an 404 error here if you want
+            return 404() 
             
 app = web.application(urls, globals()) # web.py call
 application = app.wsgifunc() # Runs the app with wsgi
