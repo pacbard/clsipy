@@ -31,8 +31,8 @@ urls = (
 
 render = web.template.render(DIR+'templates/')
 
-def 404():
-    return web.notfound()
+def notfound():
+    return web.notfound("Sorry, the page you were looking for was not found.")
 
 class index:
     def GET(self):
@@ -40,7 +40,7 @@ class index:
             f = open(DIR+'static/index.html', 'r')
             return f.read()
         except:
-            return 404() 
+            return notfound() 
         
 class compile:
     def GET(self):
@@ -63,9 +63,10 @@ class download:
             f = open(DIR+'static/download'+'/'+file, 'r')
             return f.read()
         except:
-            return 404() 
+            return notfound() 
             
 app = web.application(urls, globals()) # web.py call
+app.notfound = notfound
 application = app.wsgifunc() # Runs the app with wsgi
 
 if __name__ == '__main__':
