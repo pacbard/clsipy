@@ -19,8 +19,8 @@ import utilities
 #HOME = os.getenv('DOTCLOUD_PYTHON_HTTP_URL', 'http://clsi-pacbard.dotcloud.com/')
 #DIR = '/home/dotcloud/current/'
 #Openshift
-HOME = os.environ('OPENSHIFT_APP_DNS')
-DIR = os.environ('OPENSHIFT_REPO_DIR')+'/wgsi/'
+HOME = os.environ['OPENSHIFT_APP_DNS']
+DIR = os.environ['OPENSHIFT_REPO_DIR']+'/wgsi/'
 
 urls = (
     '/', 'index',
