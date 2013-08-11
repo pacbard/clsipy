@@ -1,0 +1,11 @@
+$def with (pdf, log)
+<?xml version="1.0" encoding="UTF-8"?>
+<compile>
+  <status>success</status>
+  <output>
+    <file type="pdf" url="$pdf" mimetype="application/pdf"/>
+  </output>
+  <logs>
+    <file type="log" url="$log" mimetype="text/plain"/>
+  </logs>
+</compile>

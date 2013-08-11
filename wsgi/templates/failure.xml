@@ -1,0 +1,12 @@
+$def with (log)
+<?xml version="1.0" encoding="UTF-8"?>
+<compile>
+  <status>failure</status>
+  <error>
+    <type>NoOutputProduced</type>
+    <message>no compiled documents were produced</message>
+  </error>
+  <logs>
+    <file type="log" url="$log" mimetype="text/plain"/>
+  </logs>
+</compile>

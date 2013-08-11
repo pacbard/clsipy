@@ -1,0 +1,87 @@
+# template for nginx.conf file.
+# the file will be processed by the postinstall script
+# it will insert the correct value for PORT_WWW and then put this
+# file in /home/dotcloud/nginx/conf/nginx.conf when done.
+
+# nginx will be managed by supervisord when it starts so we don't need daemon mode
+daemon off;
+
+worker_processes    1;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+
+ include       mime.types;
+ default_type  application/octet-stream;
+
+ sendfile        on;
+ #tcp_nopush     on;
+
+ keepalive_timeout  600;
+
+ gzip  on;
+
+  server {
+    # PORT_WWW value is added via postinstall script.
+    listen  @PORT_WWW@ default;
+
+    server_name localhost;
+
+    log_format combined-realip '$remote_addr ($http_x_real_ip) - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"';
+    access_log  /var/log/supervisor/nginx_access.log combined-realip;
+    error_log  /var/log/supervisor/nginx_error.log error;
+
+    root    /home/dotcloud/current/;
+
+    location / {
+        if ( -f /home/dotcloud/current/maintenance) {
+            return 503;
+        }
+
+        uwsgi_pass  unix:///var/dotcloud/uwsgi.sock;
+        uwsgi_param SCRIPT_NAME '';
+        uwsgi_param UWSGI_SCRIPT wsgi;
+        include     uwsgi_params;
+        include     /home/dotcloud/current/*uwsgi.conf;
+    }
+
+    error_page 404 @404;
+    error_page 500 @500;
+    error_page 502 @502;
+    error_page 503 @503;
+    error_page 504 @504;
+
+    location @404 {
+        rewrite ^ /static/404.html;
+    }
+    location @500 {
+        rewrite ^ /static/500.html;
+    }
+    location @502 {
+        rewrite ^ /static/502.html;
+    }
+    location @503 {
+        rewrite ^ /static/503.html;
+    }
+    location @504 {
+        rewrite ^ /static/504.html;
+    }
+
+    location /static {
+        alias /home/dotcloud/current/static;
+    }
+
+    location /robots.txt {
+        alias /home/dotcloud/current/static/robots.txt;
+    }
+
+    location /favicon.ico {
+        alias /home/dotcloud/current/static/favicon.ico;
+    }
+
+    include /home/dotcloud/current/*nginx.conf;
+  }
+}

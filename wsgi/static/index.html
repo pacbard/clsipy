@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Common LaTeX Service Interface</title>
+    <style type="text/css" media="screen">
+      body {
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+      
+      div.wrapper {
+        border: 1px solid black;
+        background-color: white;
+        padding: 1em;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      h1 {
+        margin-top: 0
+      }
+      
+      ul.links {
+        list-style: none;
+        float: right;
+        margin: 0;
+        margin-left: 3em;
+        padding: 0;
+      }
+      
+      ul.links li {
+        margin: 0.3em;
+        padding: 0.5em;
+        border: 1px solid black;
+        background-color: #ddeeff 
+      }
+      
+      ul.links li:hover {
+      }
+      
+      pre {
+        border: 1px dashed gray;
+        background-color: #eeeeee;
+        padding: 0.5em;
+          white-space: pre-wrap; /* CSS2.1 compliant */
+      	white-space: -moz-pre-wrap; /* Mozilla-based browsers */
+        white-space: o-pre-wrap; /* Opera 7+ */
+      }
+    </style>
+  </head>
+  <body>
+    <div class='wrapper'>
+      <h1>The Common LaTeX Service Interface</h1>
+      
+      <ul class='links'>
+        <li><a href="#get_token">Get Developer Token</a></li>
+        <li><a href="http://wiki.github.com/jpallen/clsi/">Documentation</a></li>
+        <li><a href="https://github.com/pacbard/clsi">Download Code</a></li>
+        <li><a href="#missing_packet">Request a packet</a></li>
+      </ul>
+      
+      <p>
+        The Common LaTeX Service Interface is a web service providing access to a LaTeX compiler. <br/>
+        This CLSI server runs on the <a href='https://openshift.redhat.com'>OpenShift</a>
+        network as a free public service.
+      </p>
+      
+      <a name='get_token'/>
+      <h2>How to get access</h2>
+      
+      <p>
+        To use the CLSI you will need a developer token. To request a token, please email me at
+        <a href='mailto:bardellie@gmail.com'>bardellie@gmail.com</a>.
+      </p>
+      
+      <a name='missing_packet'/>
+      <h2>How to report a missing packet</h2>
+      
+      <p>
+        At this time, this CLSI runs a striped-down version of LaTeX.  
+        To request the installation of a missing packet, please email me at
+        <a href='mailto:bardellie@gmail.com'>bardellie@gmail.com</a>.
+      </p>
+      
+      <h2>Client</h2>
+      <p>
+        If you are looking for a client to access this CLSI server, check out
+        my CLSI client on <a href='http://pacbard.github.com/RLatex/'>GitHub</a>.
+      </p>
+    </div>
+  </body>
+</html>
