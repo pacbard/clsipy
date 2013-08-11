@@ -33,7 +33,8 @@ class clsi:
         self.public = PUBLIC + self.id + "/"
 
     def whichLatex(self):
-        return "pdflatex", ""
+        BIN = os.environ['OPENSHIFT_DATA_DIR']+"texlive/bin/x86_64-linux/"
+        return BIN+"pdflatex", ""
         # dotcloud
         return "rubber", "-d"
         
