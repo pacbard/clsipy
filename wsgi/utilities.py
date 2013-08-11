@@ -34,7 +34,7 @@ class clsi:
 
     def whichLatex(self):
         BIN = os.environ['OPENSHIFT_DATA_DIR']+"texlive/bin/x86_64-linux/"
-        return BIN+"pdflatex", ""
+        return BIN+"lualatex", ""
         # dotcloud
         return "rubber", "-d"
         
