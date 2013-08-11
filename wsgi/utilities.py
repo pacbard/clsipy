@@ -61,7 +61,7 @@ class clsi:
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
 
-        latex, args = whichLatex()
+        latex, args = self.whichLatex()
         command = [latex, args, file]
         try:
                 cwd = os.getcwd()
