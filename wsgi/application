@@ -40,8 +40,7 @@ class index:
             f = open(DIR+'static/index.html', 'r')
             return f.read()
         except:
-            return notfound() 
-        
+            return DIR+'statis/index.html not found' 
 class compile:
     def GET(self):
         return 'clsi compiler'
