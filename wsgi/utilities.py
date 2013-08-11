@@ -5,10 +5,16 @@ import sys, os
 import uuid
 import shutil
 
-# Missing untangle module fix
-abspath = os.path.dirname(__file__)
-sys.path.append(abspath)
-os.chdir(abspath)
+# missing module fix
+sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
+virtenv = os.environ['APPDIR']+'/virtenv'
+os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.6/site-packages')
+virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+try:
+    execfile(virtualenv, dict(__file__=virtualenv))
+except:
+    pass
+
 import untangle
 
 TMP = '/home/dotcloud/tmp/'
