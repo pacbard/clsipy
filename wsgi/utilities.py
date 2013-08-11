@@ -17,14 +17,25 @@ except:
 
 import untangle
 
-TMP = '/home/dotcloud/tmp/'
-PUBLIC = '/home/dotcloud/current/static/download/'
+# dotCloud env varialbes
+#TMP = '/home/dotcloud/tmp/'
+#PUBLIC = '/home/dotcloud/current/static/download/'
+
+# openshift env variables
+TMP = os.environ['OPENSHIFT_TMP_DIR']
+PUBLIC = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/static/download/'
+BIN = os.environ['OPENSHIFT_DATA_DIR']
 
 class clsi:
     def __init__(self):
         self.id = str(uuid.uuid4())
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
+
+    def whichLatex(self):
+        return "pdflatex", ""
+        # dotcloud
+        return "rubber", "-d"
         
     def parse(self, data):
         req = untangle.parse(data)
@@ -49,8 +60,7 @@ class clsi:
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
 
-        latex = "rubber" 
-        args = "-d"
+        latex, args = whichLatex()
         command = [latex, args, file]
         try:
                 cwd = os.getcwd()
