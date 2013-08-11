@@ -35,6 +35,7 @@ class index:
     def GET(self):
         try:
             f = open(DIR+'static/index.html', 'r')
+            web.header('Content-Type', 'text/html')
             return f.read()
         except:
             return DIR+'static/index.html not found' 
