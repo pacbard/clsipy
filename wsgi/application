@@ -1,4 +1,4 @@
-#!/usr/bin/python
+!/usr/bin/python
 from web import wsgiserver
 import web
 import utilities
@@ -51,19 +51,8 @@ class download:
         except:
             return 'File not found' # you can send an 404 error here if you want
             
-application = web.application(urls, globals())
+app = web.application(urls, globals()) # web.py call
+application = app.wsgifunc() # Runs the app with wsgi
 
 if __name__ == '__main__':
-	# this runs when script is started directly from commandline
-	try:
-		# create a simple WSGI server and run the application
-		from wsgiref import simple_server
-		print "Running test application - point your browser at http://localhost:8000/ ..."
-		httpd = simple_server.WSGIServer(('', 8000), simple_server.WSGIRequestHandler)
-		httpd.set_app(application)
-		httpd.serve_forever()
-	except ImportError:
-		# wsgiref not installed, just output html to stdout
-		for content in application({}, lambda status, headers: None):
-			print content
-
+    app.run()
