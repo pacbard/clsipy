@@ -37,7 +37,7 @@ class index:
             f = open(DIR+'static/index.html', 'r')
             return f.read()
         except:
-            return 'File not found' # you can send an 404 error here if you want
+            return f+' not found' # you can send an 404 error here if you want
         
 class compile:
     def GET(self):
