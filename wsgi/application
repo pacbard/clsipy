@@ -31,16 +31,13 @@ urls = (
 
 render = web.template.render(DIR+'templates/')
 
-def notfound():
-    return web.notfound("Sorry, the page you were looking for was not found.")
-
 class index:
     def GET(self):
         try:
             f = open(DIR+'static/index.html', 'r')
             return f.read()
         except:
-            return notfound()
+            return DIR+'static/index.html not found' 
 class compile:
     def GET(self):
         return 'clsi compiler'
@@ -59,13 +56,12 @@ class compile:
 class download:
     def GET(self, file):
         try:
-            f = open(DIR+'static/download'+'/'+file, 'r')
+            f = open(DIR+'static/download/'+file, 'r')
             return f.read()
         except:
-            return notfound() 
+            return DIR+'static/download/'+file+' not found'
             
 app = web.application(urls, globals()) # web.py call
-app.notfound = notfound()
 application = app.wsgifunc() # Runs the app with wsgi
 
 if __name__ == '__main__':
