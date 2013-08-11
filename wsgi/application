@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os, sys, utilities
+import os, sys
 
 # missing module fix
 sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
@@ -13,13 +13,14 @@ except:
 
 from web import wsgiserver
 import web
+import utilities
 
 #DOtcloud
 #HOME = os.getenv('DOTCLOUD_PYTHON_HTTP_URL', 'http://clsi-pacbard.dotcloud.com/')
 #DIR = '/home/dotcloud/current/'
 #Openshift
-HOME = os.getenv('OPENSHIFT_APP_DNS')
-DIR = os.getenv('OPENSHIFT_REPO_DIR')+'/wgsi/'
+HOME = os.environ('OPENSHIFT_APP_DNS')
+DIR = os.environ('OPENSHIFT_REPO_DIR')+'/wgsi/'
 
 urls = (
     '/', 'index',
