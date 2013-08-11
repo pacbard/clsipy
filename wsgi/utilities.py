@@ -1,10 +1,9 @@
 import base64
 from subprocess import call
 from os.path import abspath, dirname, join
-import os
+import sys, os
 import uuid
 import shutil
-import sys
 
 # Missing untangle module fix
 abspath = os.path.dirname(__file__)
