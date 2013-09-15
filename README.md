@@ -1,3 +1,3 @@
-The OpenShift `python` cartridge documentation can be found at:
+# CLSI.py
 
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-python/README.md
+This is an implementation of a Common Latex Server Interface (CLSI) written in Python.
