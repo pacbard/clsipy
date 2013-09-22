@@ -1,0 +1,74 @@
+#!/bin/bash
+
+write_profile()
+{
+    local profile="texlive.profile"
+    #touch file if does not exist
+    if [ ! -f "$profile" ] ; then
+        touch "$profile"
+    fi
+
+    cat > "$profile" << EOF
+selected_scheme scheme-custom
+TEXDIR ${OPENSHIFT_DATA_DIR}texlive
+TEXMFCONFIG ~/app-root/data/.texlive/texmf-config
+TEXMFOPENSHIFT_DATA_DIR ~/app-root/data/texmf
+TEXMFLOCAL ${OPENSHIFT_DATA_DIR}texlive/texmf-local
+TEXMFSYSCONFIG ${OPENSHIFT_DATA_DIR}texlive/texmf-config
+TEXMFSYSVAR ${OPENSHIFT_DATA_DIR}texlive/texmf-var
+TEXMFVAR ~/app-root/data/.texlive/texmf-var
+binary_x86_64-linux 1
+collection-basic 1
+collection-bibtexextra 1
+collection-binextra 1
+collection-fontsrecommended 1
+collection-formatsextra 1
+collection-genericextra 1
+collection-genericrecommended 1
+collection-humanities 1
+collection-langenglish 1
+collection-langitalian 1
+collection-latex 1
+collection-latexextra 1
+collection-latexrecommended 1
+collection-luatex 1
+collection-mathextra 1
+collection-pictures 1
+collection-plainextra 1
+in_place 0
+option_adjustrepo 1
+option_autobackup 1
+option_backupdir tlpkg/backups
+option_desktop_integration 0
+option_doc 0
+option_file_assocs 0
+option_fmt 1
+option_letter 1
+option_menu_integration 1
+option_path 0
+option_post_code 1
+option_src 0
+option_sys_bin /usr/local/bin
+option_sys_info /usr/local/share/info
+option_sys_man /usr/local/share/man
+option_w32_multi_user 0
+option_write18_restricted 1
+portable 0
+EOF
+}
+
+echo "Checking if LaTeX is installed"
+if [ -d "${OPENSHIFT_DATA_DIR}texlive" ]; then
+    echo "LaTeX is already installed"
+else
+    echo "LaTeX is not installed"
+    cd ${OPENSHIFT_DATA_DIR}
+    mkdir test 
+    cd test
+    wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    tar -xzf install-tl-unx.tar.gz
+    cd install-tl*
+    write_profile
+    ./install-tl -profile texlive.profile
+fi
+
