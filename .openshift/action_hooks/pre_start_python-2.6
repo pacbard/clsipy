@@ -67,6 +67,7 @@ else
     tar -xzf install-tl-unx.tar.gz
     cd install-tl*
     write_profile
-    ./install-tl -profile texlive.profile
+    # installation will be detached to avoid app creation timeout
+    nohup ./install-tl -profile texlive.profile &
 fi
 
