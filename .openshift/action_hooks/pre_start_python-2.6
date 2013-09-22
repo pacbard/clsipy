@@ -62,9 +62,9 @@ if [ -d "${OPENSHIFT_DATA_DIR}texlive" ]; then
     echo "LaTeX is already installed"
 else
     echo "LaTeX is not installed"
-    cd ${OPENSHIFT_DATA_DIR}
-    mkdir test 
-    cd test
+    cd ${OPENSHIFT_TMP_DIR}
+    mkdir texlive
+    cd texlive
     wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     tar -xzf install-tl-unx.tar.gz
     cd install-tl*
