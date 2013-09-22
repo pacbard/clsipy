@@ -24,19 +24,14 @@ import untangle
 # openshift env variables
 TMP = os.environ['OPENSHIFT_TMP_DIR']
 PUBLIC = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/static/download/'
-BIN = os.environ['OPENSHIFT_DATA_DIR']
+DATA = os.environ['OPENSHIFT_DATA_DIR']
+BIN = DATA+"texlive/bin/x86_64-linux/"
 
 class clsi:
     def __init__(self):
         self.id = str(uuid.uuid4())
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
-
-    def whichLatex(self):
-        BIN = os.environ['OPENSHIFT_DATA_DIR']+"texlive/bin/x86_64-linux/"
-        return BIN+"lualatex", ""
-        # dotcloud
-        return "rubber", "-d"
         
     def parse(self, data):
         req = untangle.parse(data)
@@ -58,21 +53,14 @@ class clsi:
         return(to_compile)
 
     def run(self, file):
-        base = os.path.basename(file)
-        name = os.path.splitext(base)[0]
+        dir = os.path.dirname(file)+"/"
 
-        latex, args = self.whichLatex()
-        command = [latex, args, file]
-        try:
-                cwd = os.getcwd()
-        except OSError:
-                os.chdir("..")
-                cwd = os.getcwd()
-        os.chdir(self.tmp) # Changes the current directory to self.tmp. Currently, latexmk.py does not support --output-dir
-        call(command)
+        # Change PATH and run latexmk
+        # TODO: get the compiler option from the client XML
+        call("PATH=${PATH}:"+ BIN +" && latexmk -lualatex -outdir="+ dir +" "+ file, shell=True)
+
         log, pdf = self._move_results(file)
         self._rm_tmp()
-        os.chdir(cwd) # Returns to the current working directory
         return [log, pdf]
 
 
