@@ -14,6 +14,13 @@ To install, just create a new gear with the following commands:
     git pull -s recursive -X theirs upstream master
     git push
 
+## Optional: Cron
+Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4 folder to your application with the command
+
+    rhc cartridge add chron-1.4 -a clsi
+
+and push your app.
+
 # TODO
 - [ ] Support compiler input
 - [ ] Check tokens at compilation
