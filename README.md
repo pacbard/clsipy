@@ -11,7 +11,11 @@ To get a small latex code compiled as a .png picture just embed a new picture wi
 <img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code">
 ~~~~~~~~~~~~~~~~
 
-Now a parameter to control the picture density is allowed, it goes from 6 to 3000 where the default value is 600
+Now a parameter to control the picture density is allowed, it goes from 6 to 3000 where the default value is 600 and is assigned this way:
+
+~~~~~~~~~~~~~~~~
+<img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code&density=600">
+~~~~~~~~~~~~~~~~
 # Installation
 To install, just create a new gear with the following commands:
 
