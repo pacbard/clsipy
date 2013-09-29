@@ -234,7 +234,7 @@ request:
     </compile>
 
 The CLSI will return a response immediately, except there will be no files
-listed yet, and the status will be _compiling_. E.g.
+listed yet, and the status will be _compiling_. E.g.:
 
     {
         "compile" : {
