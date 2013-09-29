@@ -58,10 +58,11 @@
       <h1>The Common LaTeX Service Interface</h1>
       
       <ul class='links'>
-        <!--<li><a href="#get_token">Get Developer Token</a></li>
+        <li><a href="#get_token">Get Developer Token</a></li>
         <li><a href="http://wiki.github.com/jpallen/clsi/">Documentation</a></li>
-        <li><a href="https://github.com/pacbard/clsipy">Download Code</a></li>
-        <li><a href="#missing_packet">Request a packet</a></li>-->
+        <li><a href="https://github.com/pacbard/clsipy">Download Code Pacbard</a></li>
+        <li><a href="https://github.com/Anze-/clsipy">Download Code Anze</a></li>
+        <li><a href="#missing_packet">Request a packet</a></li>
         <li><a href="http://anzellotti.cu.cc/">Alberto Anzellotti webpage</a></li>
         <li><a href="/display">Display method</a></li>
       </ul>
@@ -77,8 +78,7 @@
       <h2>How to get access</h2>
       
       <p>
-        To use the CLSI you will need a developer token. To request a token, please email me at
-        <a href='mailto:alberto.anzellotti@gmail.com'>alberto.anzellotti@gmail.com</a>.
+        To use the CLSI you might need a developer token.
       </p>
       
       <a name='TT'/>
