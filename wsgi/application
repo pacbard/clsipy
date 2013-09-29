@@ -61,7 +61,7 @@ class display:
     def GET(self):
         try:
            clsi = utilities.clsi()
-           a = web.input(reqid=None, latex=None, density=1200)
+           a = web.input(reqid=None, latex=None, density=600)
            to_compile = clsi.webget(a)
            #picture output as out
            log, pdf= clsi.run(to_compile)
