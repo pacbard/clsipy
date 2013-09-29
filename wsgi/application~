@@ -81,6 +81,7 @@ class example:
             return f.read()
         except:
             return DIR+'static/example.html not found' 
+#:end-web-development
 
 class download:
     def GET(self, file):

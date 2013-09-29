@@ -99,7 +99,7 @@ class clsi:
         # TODO: get the compiler option from the client XML
         #TODO: output the file as a cropped picture
         call("cd "+dir+" && convert -verbose -density 1200 "+name+".pdf -quality 100 "+outname, shell=True)
-        outname=self.id+'/'+outname
+        outname=name+".png"
         return [outname, dir]
 
 

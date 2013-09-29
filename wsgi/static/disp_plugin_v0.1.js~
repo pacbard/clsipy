@@ -1,0 +1,16 @@
+$.fn.compile = function() {
+  var name=this.attr("name")
+  var code=this.attr("data-latex")
+  $.get( "http://develop-eznanze.rhcloud.com/display", { reqid: name, latex: code } )
+    .done(function( data ) {
+    var png_link = $('#png', $(data));
+    var png_url=png_link.attr("href");
+    this.src(png_url)
+    });
+  }; 
+
+$( document ).ready(function() {
+$( ".latex" ).compile();
+});
+
+

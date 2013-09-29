@@ -2,9 +2,14 @@ The Common LaTeX Service Interface
 ==================================
 
 The Common LaTeX Service Interface (CLSI) is an HTTP API for compiling LaTeX
-documents. Requests can be sent in XML.
+documents. Requests can be sent in 'XML' or via 'GET method'
 This is an implementation of a Common Latex Server Interface (CLSI) using an OpenShift Python gear.
 
+#New
+To get a small latex code compiled as a .png picture just embed a new picture with:
+~~~~~~~~~~~~~~~~
+<img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code">
+~~~~~~~~~~~~~~~~
 # Installation
 To install, just create a new gear with the following commands:
 
@@ -15,9 +20,9 @@ To install, just create a new gear with the following commands:
     git push
 
 ## Optional: Cron
-Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4 folder to your application with the command
+Cron can be used to clean up the compiled folder once a day, it's recommended. Just add a cron-1.4 folder to your application with the command
 
-    rhc cartridge add cron-1.4 -a clsi
+    rhc cartridge add chron-1.4 -a clsi
 
 and push your app.
 
@@ -258,4 +263,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+[Joint ownersihp:](http://www.ipo.gov.uk/types/copy/c-ownership/c-jointauthors.htm)
 [Copyright](http://pacbard.mit-license.org/) © 2013 Emanuele Bardelli - bardellie@gmail.com
+[Copyright](http://anze.mit-license.org/) © 2013 Alberto Anzellotti - alberto.anzellotti@gmail.com
