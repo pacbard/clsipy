@@ -61,11 +61,11 @@ class display:
     def GET(self):
         try:
            clsi = utilities.clsi()
-           a = web.input(reqid=None, latex=None)
+           a = web.input(reqid=None, latex=None, density=1200)
            to_compile = clsi.webget(a)
            #picture output as out
            log, pdf= clsi.run(to_compile)
-           png, pdir = clsi.pdftopng(pdf)
+           png, pdir = clsi.pdftopng(pdf, a.density)
            f = open(DIR+'static/download/'+png, 'r')
            return f.read()
         except:

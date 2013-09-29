@@ -91,20 +91,24 @@ class clsi:
         return(to_compile)
 
 
-    def pdftopng(self, file):
+    def pdftopng(self, file, density):
         dir = PUBLIC+self.id+'/'
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
-        outname=name+".png"
-        # TODO: get the compiler option from the client XML
-        #TODO: output the file as a cropped picture
-        call("cd "+dir+" && convert -verbose -density 1200 "+name+".pdf -quality 100 "+outname, shell=True)
-        outname=self.id+'/'+outname
-        return [outname, dir]
-
-
-
-
+        try: 
+            int(float(density))
+	    if int(float(density))>3000:
+                density=3000
+	    if int(float(density))<6:
+                density=6
+            outname=name+".png"
+            # TODO: get the compiler option from the client XML
+            #TODO: output the file as a cropped picture
+            call("cd "+dir+" && convert -verbose -density "+str(density)+" "+name+".pdf -quality 100 "+outname, shell=True)
+            outname=self.id+'/'+outname
+            return [outname, dir]
+        except:
+            return "density must be a number"
 
 
     def _move_results(self, file):
@@ -121,15 +125,11 @@ class clsi:
             shutil.move(pdf, self.public + name +'.pdf')
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
-        if os.path.exists(img):
-            shutil.move(img, self.public + name +'.png')
-        if os.path.exists(self.public + name +'.png'):  
-                return([self.id+'/'+name+'.log', self.id+'/'+name+'.png'])
-        else:          
-                if os.path.exists(self.public + name +'.pdf'):
-                        return([self.id+'/'+name+'.log', self.id+'/'+name+'.pdf'])
-                else:
-                        return([self.id+'/'+name+'.log', None])
+        
+        if os.path.exists(self.public + name +'.pdf'):
+                return([self.id+'/'+name+'.log', self.id+'/'+name+'.pdf'])
+        else:
+                return([self.id+'/'+name+'.log', None])
     
     #:end-web-development
 
