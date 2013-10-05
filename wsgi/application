@@ -44,11 +44,11 @@ class compile:
         clsi = utilities.clsi()
         to_compile = clsi.parse(web.data())
         [log, out] = clsi.run(to_compile)
-        if pdf is None:
+        if out is None:
             log = HOME+"download/"+log
             return render.failure(log)
         else:
-            pdf = HOME+'download/'+out
+            out = HOME+'download/'+out
             log = HOME+'download/'+log
             return render.success(out, log)
 
