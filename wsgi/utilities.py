@@ -63,7 +63,9 @@ class clsi:
 
         # Change PATH and run latexmk
         # Adjust compiler option to latexmk
-        if self.compiler == "pdflatex":
+        if self.compiler == 'standalone':
+            call("PATH=${PATH}:"+ BIN +" && cd "+ dir +" &&  latex -shell-escape -output-directory="+ dir +" "+ file, shell=True)
+        elif self.compiler == "pdflatex":
             call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
         elif self.compiler == "latex":
             call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
