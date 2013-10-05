@@ -15,10 +15,8 @@ from web import wsgiserver
 import web
 import utilities
 
-#DOtcloud
-#HOME = os.getenv('DOTCLOUD_PYTHON_HTTP_URL', 'http://clsi-pacbard.dotcloud.com/')
-#DIR = '/home/dotcloud/current/'
 #Openshift
+# TODO: Make these env variables
 HOME = 'http://'+os.environ['OPENSHIFT_APP_DNS']+'/'
 DIR = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/'
 
