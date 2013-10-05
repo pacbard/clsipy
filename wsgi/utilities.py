@@ -69,9 +69,9 @@ class clsi:
         # Change PATH and run latexmk
         call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
 
-        log, pdf = self._move_results(file)
+        log, out = self._move_results(file)
         self._rm_tmp()
-        return [log, pdf]
+        return [log, out]
 
 
     def _move_results(self, file):

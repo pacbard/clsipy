@@ -45,14 +45,14 @@ class compile:
     def POST(self):
         clsi = utilities.clsi()
         to_compile = clsi.parse(web.data())
-        [log, pdf] = clsi.run(to_compile)
+        [log, out] = clsi.run(to_compile)
         if pdf is None:
             log = HOME+"download/"+log
             return render.failure(log)
         else:
-            pdf = HOME+'download/'+pdf
+            pdf = HOME+'download/'+out
             log = HOME+'download/'+log
-            return render.success(pdf, log)
+            return render.success(out, log)
 
 class download:
     def GET(self, file):
