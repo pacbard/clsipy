@@ -4,6 +4,7 @@ from os.path import abspath, dirname, join
 import sys, os
 import uuid
 import shutil
+import cgi
 
 # missing module fix
 sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
@@ -61,11 +62,58 @@ class clsi:
         return [log, pdf]
 
 
+    #web-development-begin:
+
+    def webget(self, data):
+        reqid = data.reqid # Returns reqid value
+        latex =  data.latex
+        to_compile = self.tmp + reqid
+        # Writes the files to disk
+        if not os.path.exists(self.tmp):
+           os.makedirs(self.tmp)
+        f = open(self.tmp+reqid, 'w')
+        #set standard document environment
+        latex="""\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+\usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
+\usepackage[italian, english]{babel}
+\usepackage{hyperref}
+\usepackage{floatrow}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\\begin{document}
+"""+latex+"""
+\end{document}
+"""
+        f.write(latex.encode('utf-8'))
+        return(to_compile)
+
+
+    def pdftopng(self, file, density):
+        dir = PUBLIC+self.id+'/'
+        base = os.path.basename(file)
+        name = os.path.splitext(base)[0]
+        try: 
+            int(float(density))
+	    if int(float(density))>3000:
+                density=3000
+	    if int(float(density))<6:
+                density=6
+            outname=name+".png"
+            # TODO: get the compiler option from the client XML
+            #TODO: output the file as a cropped picture
+            call("cd "+dir+" && convert -verbose -density "+str(density)+" "+name+".pdf -quality 100 "+outname, shell=True)
+            outname=self.id+'/'+outname
+            return [outname, dir]
+        except:
+            return "density must be a number"
+
+
     def _move_results(self, file):
         dir = os.path.dirname(file)+'/'
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
         pdf = dir+name+'.pdf'
+        img = dir+name+'.png'
         log = dir+name+'.log'
         if not os.path.exists(self.public):
             os.makedirs(self.public)
@@ -74,13 +122,16 @@ class clsi:
             shutil.move(pdf, self.public + name +'.pdf')
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
-            
+        
         if os.path.exists(self.public + name +'.pdf'):
-            return([self.id+'/'+name+'.log', self.id+'/'+name+'.pdf'])
+                return([self.id+'/'+name+'.log', self.id+'/'+name+'.pdf'])
         else:
-            return([self.id+'/'+name+'.log', None])
+                return([self.id+'/'+name+'.log', None])
     
+    #:end-web-development
+
     def _rm_tmp(self):
         if os.path.isdir(self.tmp):
             shutil.rmtree(self.tmp)
         
+

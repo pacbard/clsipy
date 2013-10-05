@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import os, sys
-
+import cgi
 # missing module fix
 sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
 virtenv = os.environ['APPDIR']+'/virtenv'
@@ -13,6 +13,7 @@ except:
 
 from web import wsgiserver
 import web
+from cgi import parse_qs, escape
 import utilities
 
 #DOtcloud
@@ -24,6 +25,8 @@ DIR = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/'
 
 urls = (
     '/', 'index',
+    '/display', 'display',
+    '/example.html', 'example',
     '/compile', 'compile',
     '/download/(.+)', 'download',
     '/install', 'install'
@@ -54,6 +57,31 @@ class compile:
             log = HOME+'download/'+log
             return render.success(pdf, log)
 
+class display:
+    def GET(self):
+        try:
+           clsi = utilities.clsi()
+           a = web.input(reqid=None, latex=None, density=600)
+           to_compile = clsi.webget(a)
+           #picture output as out
+           log, pdf= clsi.run(to_compile)
+           png, pdir = clsi.pdftopng(pdf, a.density)
+           f = open(DIR+'static/download/'+png, 'r')
+           return f.read()
+        except:
+            f = open(DIR+'static/display.html', 'r')
+            web.header('Content-Type', 'text/html')
+            return f.read()
+
+class example:
+    def GET(self):
+        try:
+            f = open(DIR+'static/example.html', 'r')
+            web.header('Content-Type', 'text/html')
+            return f.read()
+        except:
+            return DIR+'static/example.html not found' 
+
 class download:
     def GET(self, file):
         try:
@@ -61,7 +89,10 @@ class download:
             return f.read()
         except:
             return DIR+'static/download/'+file+' not found'
-            
+
+
+
+
 app = web.application(urls, globals()) # web.py call
 application = app.wsgifunc() # Runs the app with wsgi
 
