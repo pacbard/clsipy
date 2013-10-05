@@ -22,7 +22,7 @@ Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4
 and push your app.
 
 # TODO
-- [ ] Support compiler input
+- [x] Support compiler input
 - [ ] Check tokens at compilation
 - [ ] Support JSON requests
 
