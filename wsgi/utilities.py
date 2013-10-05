@@ -35,11 +35,11 @@ class clsi:
         
     def parse(self, data):
         req = untangle.parse(data)
-        if req.compile.token:
+        try req.compile.token:
             self.token = req.compile.token
-        if req.compile.output-format:
+        try req.compile.output-format:
             self.format = req.compile.output-format
-        if req.compile.compiler:
+        try req.compile.compiler:
             self.compiler = req.compile.compiler
         root = req.compile.resources['root-resource-path']
         to_compile = self.tmp + root
