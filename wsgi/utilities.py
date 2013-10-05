@@ -37,10 +37,10 @@ class clsi:
         req = untangle.parse(data)
         if req.compile.token:
             self.token = req.compile.token
-        if req.compile.output_format:
-            self.format = req.compile.output_format
-        if req.compile.compiler:
-            self.compiler = req.compile.compiler
+        if req.compile.options.output_format:
+            self.format = req.compile.options.output_format
+        if req.compile.options.compiler:
+            self.compiler = req.compile.options.compiler
         root = req.compile.resources['root-resource-path']
         to_compile = self.tmp + root
         # Writes the files to disk
