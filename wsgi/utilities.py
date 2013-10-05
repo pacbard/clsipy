@@ -60,14 +60,15 @@ class clsi:
     def run(self, file):
         dir = os.path.dirname(file)+"/"
 
-        # Adjust compiler option to latexmk
-        if self.compiler is "pdflatex":
-            self.compiler += "=\"pdflatex\ %O %S\""
-        if self.compiler is "latex":
-            self.compiler += "=\"latex %O %S\""
 
         # Change PATH and run latexmk
-        call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
+        # Adjust compiler option to latexmk
+        if self.compiler is "pdflatex":
+            call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
+        if self.compiler is "latex":
+            call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
+        else:
+            call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
 
         log, out = self._move_results(file)
         self._rm_tmp()
