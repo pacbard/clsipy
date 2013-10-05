@@ -85,7 +85,7 @@ class clsi:
             os.makedirs(self.public)
         
         if os.path.exists(out):
-            shutil.move(pdf, self.public + name + '.' + self.format)
+            shutil.move(out, self.public + name + '.' + self.format)
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
             
