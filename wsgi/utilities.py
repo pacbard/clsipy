@@ -17,11 +17,8 @@ except:
 
 import untangle
 
-# dotCloud env varialbes
-#TMP = '/home/dotcloud/tmp/'
-#PUBLIC = '/home/dotcloud/current/static/download/'
-
 # openshift env variables
+# TODO: Move these settings to env variable
 TMP = os.environ['OPENSHIFT_TMP_DIR']
 PUBLIC = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/static/download/'
 DATA = os.environ['OPENSHIFT_DATA_DIR']
