@@ -60,9 +60,10 @@ class clsi:
     def run(self, file):
         dir = os.path.dirname(file)+"/"
 
+        print("latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file)
+        
         # Change PATH and run latexmk
-        # TODO: get the compiler option from the client XML
-        call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler  +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
+        call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
 
         log, pdf = self._move_results(file)
         self._rm_tmp()
