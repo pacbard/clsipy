@@ -30,8 +30,8 @@ class clsi:
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
         self.token = None
-        self.format = 'pdf'
-        self.compiler = 'pdflatex'
+        self.format = "pdf"
+        self.compiler = "pdflatex"
         
     def parse(self, data):
         req = untangle.parse(data)
@@ -59,9 +59,9 @@ class clsi:
 
     def run(self, file):
         dir = os.path.dirname(file)+"/"
+        print(self.compiler)
+        print(self.format)
 
-        print("latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file)
-        
         # Change PATH and run latexmk
         call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
 
