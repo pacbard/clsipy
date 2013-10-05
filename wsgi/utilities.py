@@ -29,10 +29,18 @@ class clsi:
         self.id = str(uuid.uuid4())
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
+        self.token = None
+        self.format = pdf
+        self.compiler = pdflatex
         
     def parse(self, data):
         req = untangle.parse(data)
-        token = req.compile.token
+        if req.compile.token:
+            self.token = req.compile.token
+        if req.compile.output-format:
+            self.format = req.compile.output-format
+        if req.compile.compiler:
+            self.compiler = req.compile.compiler
         root = req.compile.resources['root-resource-path']
         to_compile = self.tmp + root
         # Writes the files to disk
@@ -54,7 +62,7 @@ class clsi:
 
         # Change PATH and run latexmk
         # TODO: get the compiler option from the client XML
-        call("PATH=${PATH}:"+ BIN +" && latexmk -lualatex -outdir="+ dir +" "+ file, shell=True)
+        call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler  +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
 
         log, pdf = self._move_results(file)
         self._rm_tmp()
@@ -65,18 +73,18 @@ class clsi:
         dir = os.path.dirname(file)+'/'
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
-        pdf = dir+name+'.pdf'
+        out = dir+name+self.format
         log = dir+name+'.log'
         if not os.path.exists(self.public):
             os.makedirs(self.public)
         
-        if os.path.exists(pdf):
-            shutil.move(pdf, self.public + name +'.pdf')
+        if os.path.exists(out):
+            shutil.move(pdf, self.public + name +self.format)
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
             
-        if os.path.exists(self.public + name +'.pdf'):
-            return([self.id+'/'+name+'.log', self.id+'/'+name+'.pdf'])
+        if os.path.exists(self.public + name +self.format:
+            return([self.id+'/'+name+'.log', self.id+'/'+name+self.format])
         else:
             return([self.id+'/'+name+'.log', None])
     
