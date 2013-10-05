@@ -30,8 +30,8 @@ class clsi:
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
         self.token = None
-        self.format = pdf
-        self.compiler = pdflatex
+        self.format = 'pdf'
+        self.compiler = 'pdflatex'
         
     def parse(self, data):
         req = untangle.parse(data)
@@ -73,18 +73,18 @@ class clsi:
         dir = os.path.dirname(file)+'/'
         base = os.path.basename(file)
         name = os.path.splitext(base)[0]
-        out = dir+name+self.format
+        out = dir+name+'.'+self.format
         log = dir+name+'.log'
         if not os.path.exists(self.public):
             os.makedirs(self.public)
         
         if os.path.exists(out):
-            shutil.move(pdf, self.public + name +self.format)
+            shutil.move(pdf, self.public + name + '.' + self.format)
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
             
-        if os.path.exists(self.public + name +self.format:
-            return([self.id+'/'+name+'.log', self.id+'/'+name+self.format])
+        if os.path.exists(self.public + name + '.' + self.format):
+            return([self.id+'/'+name+'.log', self.id+'/'+name+'.'+self.format])
         else:
             return([self.id+'/'+name+'.log', None])
     
