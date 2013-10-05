@@ -59,8 +59,12 @@ class clsi:
 
     def run(self, file):
         dir = os.path.dirname(file)+"/"
-        print(self.compiler)
-        print(self.format)
+
+        # Adjust compiler option to latexmk
+        if self.compiler is "pdflatex":
+            self.compiler += "=pdflatex"
+        if self.compiler is "latex":
+            self.compiler += "=latex"
 
         # Change PATH and run latexmk
         call("PATH=${PATH}:"+ BIN +" && latexmk -"+ self.compiler +" -"+ self.format +" -outdir="+ dir +" "+ file, shell=True)
