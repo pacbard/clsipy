@@ -37,7 +37,7 @@ class clsi:
         req = untangle.parse(data)
         if req.compile.token:
             self.token = req.compile.token
-        if req.compile.output-format:
+        if req.compile.output_format:
             self.format = req.compile.output_format
         if req.compile.compiler:
             self.compiler = req.compile.compiler
