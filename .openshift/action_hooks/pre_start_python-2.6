@@ -71,10 +71,13 @@ else
     ./install-tl -profile texlive.profile
 fi
 
-
+cat > "${OPENSHIFT_DATA_DIR}.bash_profile" << EOF
 export CLSI_TMP="${OPENSHIFT_TMP_DIR}"
 export CLSI_PUBLIC="${OPENSHIFT_REPO_DIR}wsgi/static/download/"
 export CLSI_DATA="${OPENSHIFT_DATA_DIR}"
-export CLSL_BIN="${OPENSHIFT_DATA_DIR}texlive/bin/x86_64-linux"
+export CLSI_BIN="${OPENSHIFT_DATA_DIR}texlive/bin/x86_64-linux"
 export CLSI_HOME="http://${OPENSHIFT_APP_DNS}/"
 export CLSI_APP="${OPENSHIFT_REPO_DIR}wsgi/"
+export PATH="${PATH}:${OPENSHIFT_DATA_DIR}texlive/bin/x86_64-linux"
+EOF
+source ${OPENSHIFT_DATA_DIR}.bash_profile
