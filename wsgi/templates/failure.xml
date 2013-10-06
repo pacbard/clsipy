@@ -4,7 +4,7 @@ $def with (log)
   <status>failure</status>
   <error>
     <type>NoOutputProduced</type>
-    <message>no compiled documents were produced</message>
+    <message>No compiled documents were produced</message>
   </error>
   <logs>
     <file type="log" url="$log" mimetype="text/plain"/>
