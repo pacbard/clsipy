@@ -1,8 +1,9 @@
+$def with (err)
 <?xml version="1.0" encoding="UTF-8"?>
 <compile>
   <status>failure</status>
   <error>
     <type>NoOutputProduced</type>
-    <message>Internal Server Error</message>
+    <message>No output produced: $err</message>
   </error>
 </compile>
