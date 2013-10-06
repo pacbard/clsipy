@@ -23,7 +23,8 @@ and push your app.
 
 # TODO
 - [x] Support compiler input
-- [ ] Check tokens at compilation
+- [x] Check tokens at compilation
+- [ ] Define env variables at startup
 - [ ] Support JSON requests
 
 Accessing the CLSI
