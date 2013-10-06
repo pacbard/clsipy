@@ -29,14 +29,13 @@ class clsi:
         self.id = str(uuid.uuid4())
         self.tmp = TMP + self.id + "/"
         self.public = PUBLIC + self.id + "/"
-        self.token = None
         self.format = "pdf"
         self.compiler = "pdflatex"
         
     def parse(self, data):
         req = untangle.parse(data)
-        if req.compile.token:
-            self.token = req.compile.token.cdata
+        # Check token
+        self._check_token(req.compile.token.cdata)
         if req.compile.options.output_format:
             self.format = req.compile.options.output_format.cdata
         if req.compile.options.compiler:
@@ -61,7 +60,6 @@ class clsi:
         dir = os.path.dirname(file)+"/"
 
 
-        # Change PATH and run latexmk
         # Adjust compiler option to latexmk
         if self.compiler == 'standalone':
             call("PATH=${PATH}:"+ BIN +" && cd "+ dir +" &&  latex -shell-escape -output-directory="+ dir +" "+ file, shell=True)
@@ -100,3 +98,15 @@ class clsi:
         if os.path.isdir(self.tmp):
             shutil.rmtree(self.tmp)
         
+    def _check_token(self, token):
+        # TODO: Clean up this hack and find a better way to
+        # keep track of the authorized users
+        try:
+            with open(DATA+'tokens') as users:
+                for user in users:
+                    if token == user.rstrip(): # Removes the newline at the end of 
+                        return True 
+        except IOError:
+            return True
+        print("User "+ token +" not found in database")
+        return sys.exit()
