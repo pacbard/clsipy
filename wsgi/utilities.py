@@ -17,12 +17,11 @@ except:
 
 import untangle
 
-# openshift env variables
-# TODO: Move these settings to env variable
-TMP = os.environ['OPENSHIFT_TMP_DIR']
-PUBLIC = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/static/download/'
-DATA = os.environ['OPENSHIFT_DATA_DIR']
-BIN = DATA+"texlive/bin/x86_64-linux/"
+# env variables
+TMP = os.environ['CLSI_TMP']
+PUBLIC = os.environ['CLSI_PUBLIC']
+DATA = os.environ['CLSI_DATA']
+BIN = os.environ['CLSI_BIN']
 
 class clsi:
     def __init__(self):

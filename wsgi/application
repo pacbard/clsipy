@@ -17,8 +17,8 @@ import utilities
 
 #Openshift
 # TODO: Make these env variables
-HOME = 'http://'+os.environ['OPENSHIFT_APP_DNS']+'/'
-DIR = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/'
+HOME = os.environ['CLSI_HOME']
+APP = os.environ['CLSI_APP']
 
 urls = (
     '/', 'index',
@@ -27,7 +27,7 @@ urls = (
     '/install', 'install'
 )
 
-render = web.template.render(DIR+'templates/')
+render = web.template.render(APP+'templates/')
 
 class index:
     def GET(self):

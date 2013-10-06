@@ -71,3 +71,10 @@ else
     ./install-tl -profile texlive.profile
 fi
 
+
+export CLSI_TMP="${OPENSHIFT_TMP_DIR}"
+export CLSI_PUBLIC="${OPENSHIFT_REPO_DIR}wsgi/static/download/"
+export CLSI_DATA="${OPENSHIFT_DATA_DIR}"
+export CLSL_BIN="${OPENSHIFT_DATA_DIR}texlive/bin/x86_64-linux"
+export CLSI_HOME="http://${OPENSHIFT_APP_DNS}/"
+export CLSI_APP="${OPENSHIFT_REPO_DIR}wsgi/"
