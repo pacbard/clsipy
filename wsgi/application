@@ -15,8 +15,6 @@ from web import wsgiserver
 import web
 import utilities
 
-#Openshift
-# TODO: Make these env variables
 HOME = os.environ['CLSI_HOME']
 APP = os.environ['CLSI_APP']
 
@@ -32,11 +30,11 @@ render = web.template.render(APP+'templates/')
 class index:
     def GET(self):
         try:
-            f = open(DIR+'static/index.html', 'r')
+            f = open(APP+'static/index.html', 'r')
             web.header('Content-Type', 'text/html')
             return f.read()
         except:
-            return DIR+'static/index.html not found' 
+            return APP+'static/index.html not found' 
 class compile:
     def GET(self):
         return 'clsi compiler'
@@ -61,10 +59,10 @@ class compile:
 class download:
     def GET(self, file):
         try:
-            f = open(DIR+'static/download/'+file, 'r')
+            f = open(APP+'static/download/'+file, 'r')
             return f.read()
         except:
-            return DIR+'static/download/'+file+' not found'
+            return APP+'static/download/'+file+' not found'
             
 app = web.application(urls, globals()) # web.py call
 application = app.wsgifunc() # Runs the app with wsgi
