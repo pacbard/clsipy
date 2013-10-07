@@ -30,7 +30,7 @@ class clsi:
         self.public = PUBLIC + self.id + "/"
         self.format = "pdf"
         self.compiler = "pdflatex"
-        
+
     def parse(self, data):
         req = untangle.parse(data)
         # Check token
@@ -49,7 +49,7 @@ class clsi:
             if file['encoding'] == 'base64':
                 f.write(base64.b64decode(file.cdata))
             elif file['encoding'] == 'utf-8':
-		data = file.cdata
+                data = file.cdata
                 f.write(data.encode('utf-8'))
             else:
                 print 'Error in file encoding'
@@ -82,30 +82,27 @@ class clsi:
         log = dir+name+'.log'
         if not os.path.exists(self.public):
             os.makedirs(self.public)
-        
+
         if os.path.exists(out):
             shutil.move(out, self.public + name + '.' + self.format)
         if os.path.exists(log):
             shutil.move(log, self.public + name +'.log')
-            
+
         if os.path.exists(self.public + name + '.' + self.format):
             return([self.id+'/'+name+'.log', self.id+'/'+name+'.'+self.format])
         else:
             return([self.id+'/'+name+'.log', None])
-    
+
     def _rm_tmp(self):
         if os.path.isdir(self.tmp):
             shutil.rmtree(self.tmp)
-        
+
     def _check_token(self, token):
-        # TODO: Clean up this hack and find a better way to
-        # keep track of the authorized users
-        try:
-            with open(DATA+'tokens') as users:
-                for user in users:
-                    if token == user.rstrip(): # Removes the newline at the end of 
-                        return True 
-        except IOError:
+        # Set token value using rhc cli
+        # rhc env-set CLSI_TOKEN=your_token --app your_app
+        if token == os.environ['CLSI_TOKEN']
             return True
-        print("User "+ token +" not found in database")
-        return sys.exit()
+        else:
+            print("User "+ token +" not found in database")
+            return sys.exit()
+
