@@ -100,7 +100,8 @@ class clsi:
     def _check_token(self, token):
         # Set token value using rhc cli
         # rhc env-set CLSI_TOKEN=your_token --app your_app
-        if token == os.environ['CLSI_TOKEN']
+	# clsi_token is the fallback token in calse no token is defined
+	if token == os.getenv('CLSI_TOKEN', 'clsi_token'): 
             return True
         else:
             print("User "+ token +" not found in database")
