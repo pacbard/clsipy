@@ -43,8 +43,7 @@ class clsi:
         to_compile = self.tmp + root
         # Writes the files to disk
         for file in req.compile.resources.resource:
-            if not os.path.exists(self.tmp):
-                os.makedirs(self.tmp)
+            self._ensure_dir(self.tmp+file['path'])
             f = open(self.tmp+file['path'], 'w')
             if file['encoding'] == 'base64':
                 f.write(base64.b64decode(file.cdata))
@@ -88,11 +87,16 @@ class clsi:
         if os.path.isdir(self.tmp):
             shutil.rmtree(self.tmp)
 
+    def _ensure_dir(self, f):
+        d = os.path.dirname(f)
+        if not os.path.exists(d):
+            os.makedirs(d)
+
     def _check_token(self, token):
         # Set token value using rhc cli
         # rhc env-set CLSI_TOKEN=your_token --app your_app
-	# clsi_token is the fallback token in calse no token is defined
-	if token == os.getenv('CLSI_TOKEN', 'clsi_token'): 
+        # clsi_token is the fallback token in calse no token is defined
+        if token == os.getenv('CLSI_TOKEN', 'clsi_token'):
             return True
         else:
             print("User "+ token +" not found in database")
