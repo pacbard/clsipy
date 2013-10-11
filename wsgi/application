@@ -14,7 +14,7 @@ except:
 
 from web import wsgiserver
 import web
-import utilities
+import clsi as server 
 
 HOME = os.environ['CLSI_HOME']
 APP = os.environ['CLSI_APP']
@@ -40,7 +40,7 @@ class compile:
     def GET(self):
         return 'clsi compiler'
     def POST(self):
-        clsi = utilities.clsi()
+        clsi = server.clsi()
 
         try:
             to_compile = clsi.parse(web.data())
