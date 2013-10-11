@@ -24,7 +24,8 @@ and push your app.
 # TODO
 - [x] Support compiler input
 - [x] Check tokens at compilation
-- [ ] Define env variables at startup
+- [x] Define env variables at startup
+- [ ] Support async compilation
 - [ ] Support JSON requests
 
 # License
