@@ -1,122 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Common LaTeX Service Interface Documentation</title>
-
-    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
-    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/github.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/docs.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/print.css" media="print">
-    
-
-    <script type="text/javascript" src="assets/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
-    <script type="text/javascript" src="assets/js/lunr.min.js"></script>
-
-    
-
-    <script type="text/javascript">var BASE_URL = "";</script>
-    <script type="text/javascript" src="assets/js/viewer.js"></script>
-
-    
+<meta name="generator" content=
+"HTML Tidy for HTML5 (experimental) for Linux https://github.com/w3c/tidy-html5/tree/c63cc39">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Common LaTeX Service Interface Documentation</title>
+<link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+<link type="text/css" rel="stylesheet" href=
+"http://yandex.st/highlightjs/6.1/styles/github.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/docs.css">
+<link type="text/css" rel="stylesheet" href="assets/css/print.css"
+media="print">
+<script type="text/javascript" src=
+"assets/js/jquery-1.10.1.min.js">
+</script>
+<script type="text/javascript" src=
+"http://yandex.st/highlightjs/6.1/highlight.min.js">
+</script>
+<script type="text/javascript" src="assets/js/lunr.min.js">
+</script>
+<script type="text/javascript">
+var BASE_URL = "";
+</script>
+<script type="text/javascript" src="assets/js/viewer.js">
+</script>
 </head>
 <body>
-    <div id="page">
-        <a name="top" />
-        <header id="header">
-            <h1><a href="">Common LaTeX Service Interface Documentation</a></h1>
-        </header>
-        
-
+<div id="page"><a name="top" id="top">
+<header id="header">
+<h1><a href="">Common LaTeX Service Interface
+Documentation</a></h1>
+</header>
 <div id="sidebar">
-    <form action="search.html"><input id="search" type="text" placeholder="Search" name="q" /></form>
-    <nav id="toc">
-        
-    <ol>
-    
-        <li>
-            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#request-format">Request Format</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#response-format">Response Format</a>
-            
-        </li>
-    
-        <li>
-            <a href="async.html#asynchronous-compilation">Asynchronous Compilation</a>
-            
-        </li>
-    
-        <li>
-            <a href="install.html#installation">Installation</a>
-            
-        </li>
-    
-        <li>
-            <a href="license.html#license">License</a>
-            
-        </li>
-    
+<form action="search.html"><input id="search" type="text"
+placeholder="Search" name="q"></form>
+<nav id="toc">
+<ol>
+<li><a href="index.html#common-latex-service-interface">Common
+LaTeX Service Interface</a>
+<ol>
+<li><a href="access.html#accessing-the-clsi">Accessing the
+CLSI</a></li>
+<li><a href="request.html#request-format">Request Format</a></li>
+<li><a href="response.html#response-format">Response
+Format</a></li>
+<li><a href="async.html#asynchronous-compilation">Asynchronous
+Compilation</a></li>
+<li><a href="install.html#installation">Installation</a></li>
+<li><a href="license.html#license">License</a></li>
 </ol>
-
-            
-        </li>
-    
+</li>
 </ol>
-
-    </nav>
-    
-    <nav id="links">
-        <ul>
-            
-            <li><a href="http://github.com/pacbard/clsipy">View on GitHub</a></li>
-            
-        </ul>
-    </nav>
-    
+</nav>
+<nav id="links">
+<ul>
+<li><a href="http://github.com/pacbard/clsipy">View on
+GitHub</a></li>
+</ul>
+</nav>
 </div>
-
-        <div id="content">
-            <a name="response-format"></a><h2>Response Format</h2>
-<p>The response follows a similar schema to the request, and is returned in the
-same format as the request. An example XML response is:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<div id="content"><a name="response-format" id=
+"response-format"></a>
+<h2>Response Format</h2>
+<p>The response follows a similar schema to the request, and is
+returned in the same format as the request. An example XML response
+is:</p>
+<pre>
+<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;compile&gt;
   &lt;status&gt;success&lt;/status&gt;
   &lt;output&gt;
-    &lt;file type=&quot;pdf&quot; url=&quot;http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.pdf&quot; mimetype=&quot;application/pdf&quot;/&gt;
+    &lt;file type="pdf" url="http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.pdf" mimetype="application/pdf"/&gt;
   &lt;/output&gt;
   &lt;logs&gt;
-    &lt;file type=&quot;log&quot; url=&quot;http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.log&quot; mimetype=&quot;text/plain&quot;/&gt;
+    &lt;file type="log" url="http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.log" mimetype="text/plain"/&gt;
   &lt;/logs&gt;
-&lt;/compile&gt;</code></pre>
-<a name="status"></a><h3>Status</h3>
+&lt;/compile&gt;</code>
+</pre>
+<a name="status" id="status"></a>
+<h3>Status</h3>
 <p>The status can be either:</p>
 <ul>
-<li><em>success</em> - The compile ran successfully and an output document was produced.</li>
-<li><em>failure</em> - For some reason the compile was unable to run or produce any
-output. More information is given in the <em>error</em> attribute explained below.</li>
-<li><em>compiling</em> - The compile has not yet finished. See <em>Asynchronous Compiling</em>
-below.</li>
+<li><em>success</em> - The compile ran successfully and an output
+document was produced.</li>
+<li><em>failure</em> - For some reason the compile was unable to
+run or produce any output. More information is given in the
+<em>error</em> attribute explained below.</li>
+<li><em>compiling</em> - The compile has not yet finished. See
+<em>Asynchronous Compiling</em> below.</li>
 </ul>
-<a name="errors"></a><h3>Errors</h3>
-<p>If there was a problem with the request, or the compile was unable to run for
-some reason, the response will contain an error section:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<a name="errors" id="errors"></a>
+<h3>Errors</h3>
+<p>If there was a problem with the request, or the compile was
+unable to run for some reason, the response will contain an error
+section:</p>
+<pre>
+<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;compile&gt;
   &lt;status&gt;failure&lt;/status&gt;
   &lt;error&gt;
@@ -124,44 +103,54 @@ some reason, the response will contain an error section:</p>
     &lt;message&gt;no compiled documents were produced&lt;/message&gt;
   &lt;/error&gt;
   &lt;logs&gt;
-    &lt;file type=&quot;log&quot; url=&quot;http://clsi.example.com/download/4c2100ec6ffe6a6dd82792cb507def84/output.log&quot; mimetype=&quot;text/plain&quot;/&gt;
+    &lt;file type="log" url="http://clsi.example.com/download/4c2100ec6ffe6a6dd82792cb507def84/output.log" mimetype="text/plain"/&gt;
   &lt;/logs&gt;
-&lt;/compile&gt;</code></pre>
+&lt;/compile&gt;</code>
+</pre>
 <p>Possible errors are:</p>
 <ul>
-<li><em>ParseError</em> - the XML you sent was bad in some way. The message will contain more information</li>
-<li><em>InvalidToken</em> - The token you supplied was not correct</li>
-<li><em>UnknownCompiler</em> - The compiler you specified is not supported</li>
-<li><em>ImpossibleOutputFormat</em> - The output format you specified is not possible with the compiler you specified</li>
-<li><em>InvalidPath</em> - One of the paths you supplied for the resources is not valid</li>
-<li><em>NoOutputProduced</em> - The compile did not produce any output, most likely due to a problem with your LaTeX syntax. See the returned log for more details</li>
-<li><em>Timeout</em> - Part of the compiler process took too long to do and was aborted. Do you have server destroying infinite loops in your LaTeX?</li>
+<li><em>ParseError</em> - the XML you sent was bad in some way. The
+message will contain more information</li>
+<li><em>InvalidToken</em> - The token you supplied was not
+correct</li>
+<li><em>UnknownCompiler</em> - The compiler you specified is not
+supported</li>
+<li><em>ImpossibleOutputFormat</em> - The output format you
+specified is not possible with the compiler you specified</li>
+<li><em>InvalidPath</em> - One of the paths you supplied for the
+resources is not valid</li>
+<li><em>NoOutputProduced</em> - The compile did not produce any
+output, most likely due to a problem with your LaTeX syntax. See
+the returned log for more details</li>
+<li><em>Timeout</em> - Part of the compiler process took too long
+to do and was aborted. Do you have server destroying infinite loops
+in your LaTeX?</li>
 </ul>
-<a name="compile-id"></a><h3>Compile ID</h3>
-<p>Each request is given a unique ID which is returned as the <em>compile_id</em>
-attribute. This can be used to later refer to the same compile. This is mainly
-useful when compiling asynchronously (see below).</p>
-<a name="output-files-and-logs"></a><h3>Output Files and Logs</h3>
-<p>Any output files and logs which are produced are returned in the <em>output_files</em>
-and <em>logs</em> attributes respectively. These are collections of items with the
-following properites:</p>
+<a name="compile-id" id="compile-id"></a>
+<h3>Compile ID</h3>
+<p>Each request is given a unique ID which is returned as the
+<em>compile_id</em> attribute. This can be used to later refer to
+the same compile. This is mainly useful when compiling
+asynchronously (see below).</p>
+<a name="output-files-and-logs" id="output-files-and-logs"></a>
+<h3>Output Files and Logs</h3>
+<p>Any output files and logs which are produced are returned in the
+<em>output_files</em> and <em>logs</em> attributes respectively.
+These are collections of items with the following properites:</p>
 <ul>
-<li><em>output</em> -  Output file produced by the compiler. The file extension can be specified with the compilation request.</li>
-<li><em>log</em> -  LaTeX log file. This will be always be returned by the server regardless of the compilation status.</li>
+<li><em>output</em> - Output file produced by the compiler. The
+file extension can be specified with the compilation request.</li>
+<li><em>log</em> - LaTeX log file. This will be always be returned
+by the server regardless of the compilation status.</li>
 </ul>
-
-
-
-
-        </div>
-        <footer id="footer">
-            Powered by <a href="http://github.com/maximebf/beautiful-docs">beautiful-docs</a> -
-            <a href="#top">Back to top</a> - <a href="all.html">Everything on a single page</a>
-            - <a href="?print=1">Print current page</a> - <a href="all.html?print=1">Print all pages</a>
-            
-                <a href="https://github.com/pacbard/clsipy" id="fork-me-on-github">Fork me on Github</a>
-            
-        </footer>
-    </div>
+</div>
+<footer id="footer">Powered by <a href=
+"http://github.com/maximebf/beautiful-docs">beautiful-docs</a> -
+<a href="#top">Back to top</a> - <a href="all.html">Everything on a
+single page</a> - <a href="?print=1">Print current page</a> -
+<a href="all.html?print=1">Print all pages</a> <a href=
+"https://github.com/pacbard/clsipy" id="fork-me-on-github">Fork me
+on Github</a></footer>
+</div>
 </body>
 </html>

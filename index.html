@@ -1,123 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Common LaTeX Service Interface Documentation</title>
-
-    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">
-    <link type="text/css" rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/github.min.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/docs.css">
-    <link type="text/css" rel="stylesheet" href="assets/css/print.css" media="print">
-    
-
-    <script type="text/javascript" src="assets/js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
-    <script type="text/javascript" src="assets/js/lunr.min.js"></script>
-
-    
-
-    <script type="text/javascript">var BASE_URL = "";</script>
-    <script type="text/javascript" src="assets/js/viewer.js"></script>
-
-    
+<meta name="generator" content=
+"HTML Tidy for HTML5 (experimental) for Linux https://github.com/w3c/tidy-html5/tree/c63cc39">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Common LaTeX Service Interface Documentation</title>
+<link type="text/css" rel="stylesheet" href="assets/css/reset.css">
+<link type="text/css" rel="stylesheet" href=
+"http://yandex.st/highlightjs/6.1/styles/github.min.css">
+<link type="text/css" rel="stylesheet" href="assets/css/docs.css">
+<link type="text/css" rel="stylesheet" href="assets/css/print.css"
+media="print">
+<script type="text/javascript" src=
+"assets/js/jquery-1.10.1.min.js">
+</script>
+<script type="text/javascript" src=
+"http://yandex.st/highlightjs/6.1/highlight.min.js">
+</script>
+<script type="text/javascript" src="assets/js/lunr.min.js">
+</script>
+<script type="text/javascript">
+var BASE_URL = "";
+</script>
+<script type="text/javascript" src="assets/js/viewer.js">
+</script>
 </head>
 <body>
-    <div id="page">
-        <a name="top" />
-        <header id="header">
-            <h1><a href="">Common LaTeX Service Interface Documentation</a></h1>
-        </header>
-        
-
+<div id="page"><a name="top" id="top">
+<header id="header">
+<h1><a href="">Common LaTeX Service Interface
+Documentation</a></h1>
+</header>
 <div id="sidebar">
-    <form action="search.html"><input id="search" type="text" placeholder="Search" name="q" /></form>
-    <nav id="toc">
-        
-    <ol>
-    
-        <li>
-            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#request-format">Request Format</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#response-format">Response Format</a>
-            
-        </li>
-    
-        <li>
-            <a href="async.html#asynchronous-compilation">Asynchronous Compilation</a>
-            
-        </li>
-    
-        <li>
-            <a href="install.html#installation">Installation</a>
-            
-        </li>
-    
-        <li>
-            <a href="license.html#license">License</a>
-            
-        </li>
-    
+<form action="search.html"><input id="search" type="text"
+placeholder="Search" name="q"></form>
+<nav id="toc">
+<ol>
+<li><a href="index.html#common-latex-service-interface">Common
+LaTeX Service Interface</a>
+<ol>
+<li><a href="access.html#accessing-the-clsi">Accessing the
+CLSI</a></li>
+<li><a href="request.html#request-format">Request Format</a></li>
+<li><a href="response.html#response-format">Response
+Format</a></li>
+<li><a href="async.html#asynchronous-compilation">Asynchronous
+Compilation</a></li>
+<li><a href="install.html#installation">Installation</a></li>
+<li><a href="license.html#license">License</a></li>
 </ol>
-
-            
-        </li>
-    
+</li>
 </ol>
-
-    </nav>
-    
-    <nav id="links">
-        <ul>
-            
-            <li><a href="http://github.com/pacbard/clsipy">View on GitHub</a></li>
-            
-        </ul>
-    </nav>
-    
+</nav>
+<nav id="links">
+<ul>
+<li><a href="http://github.com/pacbard/clsipy">View on
+GitHub</a></li>
+</ul>
+</nav>
 </div>
-
-        <div id="content">
-            <a name="common-latex-service-interface"></a><h1>Common LaTeX Service Interface</h1>
-<p>The Common LaTeX Service Interface (CLSI) is an HTTP RESTful API for compiling LaTeX
-documents online.</p>
-<a name="how-to-get-access"></a><h3>How to get access</h3>
-<p>To access the CLSI server you will need a developer token. To request a
-token, please email the server maintainer. </p>
-<a name="how-to-report-a-missing-package"></a><h3>How to report a missing package</h3>
-<p>If the CLSI maintainer decided to run a striped-down version of LaTeX,
-it is possible that some packages are not installed by default. Please
-contact the CSLI maintainer for more information regarding missing
-packages.</p>
-<a name="client"></a><h3>Client</h3>
+<div id="content"><a name="common-latex-service-interface" id=
+"common-latex-service-interface"></a>
+<h1>Common LaTeX Service Interface</h1>
+<p>The Common LaTeX Service Interface (CLSI) is an HTTP RESTful API
+for compiling LaTeX documents online.</p>
+<a name="how-to-get-access" id="how-to-get-access"></a>
+<h3>How to get access</h3>
+<p>To access the CLSI server you will need a developer token. To
+request a token, please email the server maintainer.</p>
+<a name="how-to-report-a-missing-package" id=
+"how-to-report-a-missing-package"></a>
+<h3>How to report a missing package</h3>
+<p>If the CLSI maintainer decided to run a striped-down version of
+LaTeX, it is possible that some packages are not installed by
+default. Please contact the CSLI maintainer for more information
+regarding missing packages.</p>
+<a name="client" id="client"></a>
+<h3>Client</h3>
 <p>If you are looking for a client to access this CLSI server,
-check out the <a href="http://github.com/pacbard/RLatex">Remote LaTeX</a> client.</p>
-
-
-
-
-        </div>
-        <footer id="footer">
-            Powered by <a href="http://github.com/maximebf/beautiful-docs">beautiful-docs</a> -
-            <a href="#top">Back to top</a> - <a href="all.html">Everything on a single page</a>
-            - <a href="?print=1">Print current page</a> - <a href="all.html?print=1">Print all pages</a>
-            
-                <a href="https://github.com/pacbard/clsipy" id="fork-me-on-github">Fork me on Github</a>
-            
-        </footer>
-    </div>
+check out the <a href="http://github.com/pacbard/RLatex">Remote
+LaTeX</a> client.</p>
+</div>
+<footer id="footer">Powered by <a href=
+"http://github.com/maximebf/beautiful-docs">beautiful-docs</a> -
+<a href="#top">Back to top</a> - <a href="all.html">Everything on a
+single page</a> - <a href="?print=1">Print current page</a> -
+<a href="all.html?print=1">Print all pages</a> <a href=
+"https://github.com/pacbard/clsipy" id="fork-me-on-github">Fork me
+on Github</a></footer>
+</div>
 </body>
 </html>
