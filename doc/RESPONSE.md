@@ -1,5 +1,4 @@
-Response Format
-===============
+# Response Format
 
 The response follows a similar schema to the request, and is returned in the
 same format as the request. An example XML response is:
@@ -15,8 +14,7 @@ same format as the request. An example XML response is:
       </logs>
     </compile>
 
-Status
-------
+## Status
 
 The status can be either:
 
@@ -26,8 +24,7 @@ The status can be either:
 * _compiling_ - The compile has not yet finished. See _Asynchronous Compiling_
   below.
 
-Errors
-------
+## Errors
 
 If there was a problem with the request, or the compile was unable to run for
 some reason, the response will contain an error section:
@@ -54,16 +51,16 @@ Possible errors are:
 * *NoOutputProduced* - The compile did not produce any output, most likely due to a problem with your LaTeX syntax. See the returned log for more details
 * *Timeout* - Part of the compiler process took too long to do and was aborted. Do you have server destroying infinite loops in your LaTeX?
 
-Compile ID
-----------
+## Compile ID
 
 Each request is given a unique ID which is returned as the _compile_id_
 attribute. This can be used to later refer to the same compile. This is mainly
 useful when compiling asynchronously (see below).
 
-Output Files and Logs
----------------------
+## Output Files and Logs
 
 Any output files and logs which are produced are returned in the _output_files_
 and _logs_ attributes respectively. These are collections of items with the
 following properites:
+* _output_ -  Output file produced by the compiler. The file extension can be specified with the compilation request.
+* _log_ -  LaTeX log file. This will be always be returned by the server regardless of the compilation status.

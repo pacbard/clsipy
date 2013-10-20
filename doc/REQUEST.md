@@ -1,14 +1,11 @@
-Request Format
-==============
+# Request Format
 
-Token
------
+## Token
 
 Every request must include your API access token under the _token_ option. This
 can currently only be obtained by an email request to the CLSI owner.
 
-Resources
----------
+## Resources
 
 Every request must contain a list of _resources_ (files to included in the
 compilation), containing at least one resource. Resources must have a _path_
@@ -37,8 +34,7 @@ attribute. More information about each attribute is given below:
   date). If no modified date is provided, a cached version of the URL will
   always be used where available.
 
-Root Resource Path
-------------------
+## Root Resource Path
 
 This specifies the main file which LaTeX should be run on. LaTeX will
 be called with something like
@@ -47,8 +43,7 @@ be called with something like
 
 The root resource path defaults to "main.tex".
 
-Options
--------
+## Options
 
 The CLSI provides multiple compilers and output formats which can be specified
 in the options section.

@@ -5,22 +5,6 @@ The Common LaTeX Service Interface (CLSI) is an HTTP API for compiling LaTeX
 documents. Requests can be sent in XML.
 This is an implementation of a Common Latex Server Interface (CLSI) using an OpenShift Python gear.
 
-# Installation
-To install, just create a new gear with the following commands:
-
-    rhc app create clsi -t python-2.6
-    cd clsi
-    git remote add upstream -m master https://github.com/pacbard/clsipy.git
-    git pull -s recursive -X theirs upstream master
-    git push
-
-## Optional: Cron
-Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4 folder to your application with the command
-
-    rhc cartridge add cron-1.4 -a clsi
-
-and push your app.
-
 # TODO
 - [x] Support compiler input
 - [x] Check tokens at compilation

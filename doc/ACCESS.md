@@ -1,5 +1,4 @@
-Accessing the CLSI
-==================
+# Accessing the CLSI
 
 An example XML request looks like
 
