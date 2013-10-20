@@ -91,11 +91,11 @@ index.add({
 
 
 
-documentTitles["async.html#async"] = "Async";
+documentTitles["async.html#asynchronous-compiling"] = "Asynchronous Compiling";
 index.add({
-    url: "async.html#async",
-    title: "Async",
-    body: "Asynchronous Compiling ======================  By default the HTTP connection is left open until the compile is finished and then the response is returned. While the CLSI is comparatively fast, compiling a LaTeX document can still take a long time and this can leave you with a connection sitting open for a while.   The asynchronous options tells the CLSI to return immediately, before the compilation is finished. A unique ID is provided which allows you to poll the server to find out of the compile is complete.  Asynchronous compiling is enabled by passing the _asynchronous_ option in the request:      &lt;compile&gt;         &lt;options&gt;             &lt;asynchronous&gt;true&lt;/asynchronous&gt;             ...         &lt;/options&gt;         ...     &lt;/compile&gt;  The CLSI will return a response immediately, except there will be no files listed yet, and the status will be _compiling_. E.g.      {         \&quot;compile\&quot; : {             \&quot;status\&quot;      : \&quot;compiling\&quot;,             \&quot;compile_id\&quot; : \&quot;...\&quot;         }     }  To check on the progress of a compile you can perform a GET request to       http://clsi.example.com/download/&lt;compile-id&gt;/response.xml  depending on the format you would like.  The response will contain a status as above, which will either be _compiling_ if the compile is still going on, or _success_ or _failure_ if it has finished. Any output files will be listed when they are available.  We recommend polling at progressively longer intervals, e.g. 0.2s, 0.4s, 0.8s, 1.6s, 3.2s. "
+    url: "async.html#asynchronous-compiling",
+    title: "Asynchronous Compiling",
+    body: "# Asynchronous Compiling  By default the HTTP connection is left open until the compile is finished and then the response is returned. While the CLSI is comparatively fast, compiling a LaTeX document can still take a long time and this can leave you with a connection sitting open for a while.   The asynchronous options tells the CLSI to return immediately, before the compilation is finished. A unique ID is provided which allows you to poll the server to find out of the compile is complete.  Asynchronous compiling is enabled by passing the _asynchronous_ option in the request:      &lt;compile&gt;         &lt;options&gt;             &lt;asynchronous&gt;true&lt;/asynchronous&gt;             ...         &lt;/options&gt;         ...     &lt;/compile&gt;  The CLSI will return a response immediately, except there will be no files listed yet, and the status will be _compiling_. E.g.      {         \&quot;compile\&quot; : {             \&quot;status\&quot;      : \&quot;compiling\&quot;,             \&quot;compile_id\&quot; : \&quot;...\&quot;         }     }  To check on the progress of a compile you can perform a GET request to       http://clsi.example.com/download/&lt;compile-id&gt;/response.xml  depending on the format you would like.  The response will contain a status as above, which will either be _compiling_ if the compile is still going on, or _success_ or _failure_ if it has finished. Any output files will be listed when they are available.  We recommend polling at progressively longer intervals, e.g. 0.2s, 0.4s, 0.8s, 1.6s, 3.2s. "
 });
 
 
@@ -104,7 +104,7 @@ documentTitles["install.html#installation"] = "Installation";
 index.add({
     url: "install.html#installation",
     title: "Installation",
-    body: "# Installation This is an implementation of a Common Latex Server Interface (CLSI) using an OpenShift Python gear.  To install, just create a new gear with the following commands:      rhc app create clsi -t python-2.6     cd clsi     git remote add upstream -m master https://github.com/pacbard/clsipy.git     git pull -s recursive -X theirs upstream master     git push  "
+    body: "# Installation To install, just create a new gear with the following commands:      rhc app create clsi -t python-2.6     cd clsi     git remote add upstream -m master https://github.com/pacbard/clsipy.git     git pull -s recursive -X theirs upstream master     git push  "
 });
 
 documentTitles["install.html#cron"] = "Cron";
@@ -116,11 +116,11 @@ index.add({
 
 
 
-documentTitles["licence.html#licence"] = "Licence";
+documentTitles["license.html#license"] = "License";
 index.add({
-    url: "licence.html#licence",
-    title: "Licence",
-    body: "The MIT License (MIT)  Copyright (c) 2013 Emanuele Bardelli &lt;bardellie@gmail.com&gt;  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \&quot;Software\&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \&quot;AS IS\&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. "
+    url: "license.html#license",
+    title: "License",
+    body: "# License  The MIT License (MIT)  Copyright (c) 2013 Emanuele Bardelli &lt;bardellie@gmail.com&gt;  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \&quot;Software\&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED \&quot;AS IS\&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. "
 });
 
 

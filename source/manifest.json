@@ -1,0 +1,8 @@
+{
+    "title": "Common LaTeX Service Interface Documentation",
+    "github": "pacbard/clsipy",
+    "files": ["ACCESS.md", "REQUEST.md", "RESPONSE.md", "ASYNC.md", "INSTALL.md", "LICENSE.md"],
+    "links": [
+        ["View on GitHub", "http://github.com/pacbard/clsipy"]
+    ]
+}

@@ -161,33 +161,23 @@
 </div>
 
         <div id="content">
-            <a name="accessing-the-clsi"></a><h1>Accessing the CLSI</h1>
-<p>An example XML request looks like</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;compile&gt;
-    &lt;token&gt;...&lt;/token&gt;
-    &lt;options&gt;
-        &lt;output-format&gt;pdf&lt;/output-format&gt;
-        &lt;compiler&gt;latex&lt;/compiler&gt;
-    &lt;/options&gt;
-    &lt;resources root-resource-path=&quot;main.tex&quot;&gt;
-        &lt;resource path=&quot;main.tex&quot;&gt;&lt;!CDATA[
-            \documentclass{article}
-            \begin{document}
-            Hello world! 
-            \input{chapter1.tex}
-            \end{document}
-        ]&gt;&lt;/resource&gt;
-        &lt;resource
-            path=&quot;chapter1.tex&quot;
-            url=&quot;http://scribtex.github.com/clsi/examples/chapter1.tex&quot;
-            modified=&quot;2012-02-14 12:36:54&quot;&gt;
-        &lt;/resource&gt;
-    &lt;/resources&gt;
-&lt;/compile&gt;</code></pre>
-<p>These requests should be sent as POST requests to /compile, e.g.</p>
-<pre><code>curl --data-binary @request.xml http://clsi.example.com/compile</code></pre>
-<p>Note that XML is assumed to be the default format unless otherwise specified.</p>
+            <a name="license"></a><h1>License</h1>
+<p>The MIT License (MIT)</p>
+<p>Copyright (c) 2013 Emanuele Bardelli <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x62;&#x61;&#x72;&#100;&#x65;&#x6c;&#108;&#105;&#101;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x62;&#x61;&#x72;&#100;&#x65;&#x6c;&#108;&#105;&#101;&#64;&#x67;&#109;&#97;&#105;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the &quot;Software&quot;), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 
 
 
