@@ -86,7 +86,7 @@ documentTitles["response.html#output-files-and-logs"] = "Output Files and Logs";
 index.add({
     url: "response.html#output-files-and-logs",
     title: "Output Files and Logs",
-    body: "## Output Files and Logs  Any output files and logs which are produced are returned in the _output_files_ and _logs_ attributes respectively. These are collections of items with the following properites: * _output_ -  Output file produced by the compiler. The file extension can be specified with the compilation request. * _log_ -  LaTeX log file. This will be always be returned by the server regardless of the compilation status. "
+    body: "## Output Files and Logs  Any output files and logs which are produced are returned in the _output_files_ and _logs_ attributes respectively. These are collections of items with the following properites:  * _output_ -  Output file produced by the compiler. The file extension can be specified with the compilation request. * _log_ -  LaTeX log file. This will be always be returned by the server regardless of the compilation status. "
 });
 
 

@@ -62,5 +62,6 @@ useful when compiling asynchronously (see below).
 Any output files and logs which are produced are returned in the _output_files_
 and _logs_ attributes respectively. These are collections of items with the
 following properites:
+
 * _output_ -  Output file produced by the compiler. The file extension can be specified with the compilation request.
 * _log_ -  LaTeX log file. This will be always be returned by the server regardless of the compilation status.
