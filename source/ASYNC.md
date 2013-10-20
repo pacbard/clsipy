@@ -1,4 +1,6 @@
-## Asynchronous Compiling
+## Asynchronous Compilation
+
+<div class="warning">This feature is not implemented yet</div>
 
 By default the HTTP connection is left open until the compile is
 finished and then the response is returned. While the CLSI is comparatively fast,

@@ -34,6 +34,12 @@ attribute. More information about each attribute is given below:
   date). If no modified date is provided, a cached version of the URL will
   always be used where available.
 
+<div class="tip">
+If you have to upload a file that is not encoded using
+utf-8 or is a binary file (e.g., an image), you can encode the file using
+base64
+</div>
+
 ### Root Resource Path
 
 This specifies the main file which LaTeX should be run on. LaTeX will
