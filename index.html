@@ -161,33 +161,20 @@
 </div>
 
         <div id="content">
-            <a name="accessing-the-clsi"></a><h1>Accessing the CLSI</h1>
-<p>An example XML request looks like</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;compile&gt;
-    &lt;token&gt;...&lt;/token&gt;
-    &lt;options&gt;
-        &lt;output-format&gt;pdf&lt;/output-format&gt;
-        &lt;compiler&gt;latex&lt;/compiler&gt;
-    &lt;/options&gt;
-    &lt;resources root-resource-path=&quot;main.tex&quot;&gt;
-        &lt;resource path=&quot;main.tex&quot;&gt;&lt;!CDATA[
-            \documentclass{article}
-            \begin{document}
-            Hello world! 
-            \input{chapter1.tex}
-            \end{document}
-        ]&gt;&lt;/resource&gt;
-        &lt;resource
-            path=&quot;chapter1.tex&quot;
-            url=&quot;http://scribtex.github.com/clsi/examples/chapter1.tex&quot;
-            modified=&quot;2012-02-14 12:36:54&quot;&gt;
-        &lt;/resource&gt;
-    &lt;/resources&gt;
-&lt;/compile&gt;</code></pre>
-<p>These requests should be sent as POST requests to /compile, e.g.</p>
-<pre><code>curl --data-binary @request.xml http://clsi.example.com/compile</code></pre>
-<p>Note that XML is assumed to be the default format unless otherwise specified.</p>
+            <a name="common-latex-service-interface"></a><h1>Common LaTeX Service Interface</h1>
+<p>The Common LaTeX Service Interface (CLSI) is an HTTP RESTful API for compiling LaTeX
+documents online.</p>
+<a name="how-to-get-access"></a><h2>How to get access</h2>
+<p>To access the CLSI server you will need a developer token. To request a
+token, please email the server maintainer. </p>
+<a name="how-to-report-a-missing-package"></a><h2>How to report a missing package</h2>
+<p>If the CLSI maintainer decided to run a striped-down version of LaTeX,
+it is possible that some packages are not installed by default. Please
+contact the CSLI maintainer for more information regarding missing
+packages.</p>
+<a name="client"></a><h2>Client</h2>
+<p>If you are looking for a client to access this CLSI server,
+check out the <a href="http://github.com/pacbard/RLatex">Remote LaTeX</a> client.</p>
 
 
 
