@@ -36,110 +36,40 @@
     <ol>
     
         <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
+            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
             
                 
     <ol>
     
-</ol>
-
+        <li>
+            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
             
         </li>
     
         <li>
             <a href="request.html#request-format">Request Format</a>
             
-                
-    <ol>
-    
-        <li>
-            <a href="request.html#token">Token</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#resources">Resources</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#root-resource-path">Root Resource Path</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#options">Options</a>
-            
-        </li>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="response.html#response-format">Response Format</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="response.html#status">Status</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#errors">Errors</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#compile-id">Compile ID</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#output-files-and-logs">Output Files and Logs</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="async.html#asynchronous-compiling">Asynchronous Compiling</a>
             
-                
-    <ol>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="install.html#installation">Installation</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="install.html#cron">Cron</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="license.html#license">License</a>
             
-                
-    <ol>
+        </li>
     
 </ol>
 
@@ -161,11 +91,11 @@
 </div>
 
         <div id="content">
-            <a name="request-format"></a><h1>Request Format</h1>
-<a name="token"></a><h2>Token</h2>
+            <a name="request-format"></a><h2>Request Format</h2>
+<a name="token"></a><h3>Token</h3>
 <p>Every request must include your API access token under the <em>token</em> option. This
 can currently only be obtained by an email request to the CLSI owner.</p>
-<a name="resources"></a><h2>Resources</h2>
+<a name="resources"></a><h3>Resources</h3>
 <p>Every request must contain a list of <em>resources</em> (files to included in the
 compilation), containing at least one resource. Resources must have a <em>path</em>
 attribute, and either a <em>content</em> or an <em>url</em> attribute. For XML requests, the
@@ -193,12 +123,12 @@ redownloaded if the modified date is ahead of the previously supplied modified
 date). If no modified date is provided, a cached version of the URL will
 always be used where available.</li>
 </ul>
-<a name="root-resource-path"></a><h2>Root Resource Path</h2>
+<a name="root-resource-path"></a><h3>Root Resource Path</h3>
 <p>This specifies the main file which LaTeX should be run on. LaTeX will
 be called with something like</p>
 <pre><code>latex &lt;root-resource-path&gt;</code></pre>
 <p>The root resource path defaults to &quot;main.tex&quot;.</p>
-<a name="options"></a><h2>Options</h2>
+<a name="options"></a><h3>Options</h3>
 <p>The CLSI provides multiple compilers and output formats which can be specified
 in the options section.</p>
 <p>The request may contain an optional options block:</p>

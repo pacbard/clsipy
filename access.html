@@ -36,110 +36,40 @@
     <ol>
     
         <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
+            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
             
                 
     <ol>
     
-</ol>
-
+        <li>
+            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
             
         </li>
     
         <li>
             <a href="request.html#request-format">Request Format</a>
             
-                
-    <ol>
-    
-        <li>
-            <a href="request.html#token">Token</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#resources">Resources</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#root-resource-path">Root Resource Path</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#options">Options</a>
-            
-        </li>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="response.html#response-format">Response Format</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="response.html#status">Status</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#errors">Errors</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#compile-id">Compile ID</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#output-files-and-logs">Output Files and Logs</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="async.html#asynchronous-compiling">Asynchronous Compiling</a>
             
-                
-    <ol>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="install.html#installation">Installation</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="install.html#cron">Cron</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="license.html#license">License</a>
             
-                
-    <ol>
+        </li>
     
 </ol>
 
@@ -161,7 +91,7 @@
 </div>
 
         <div id="content">
-            <a name="accessing-the-clsi"></a><h1>Accessing the CLSI</h1>
+            <a name="accessing-the-clsi"></a><h2>Accessing the CLSI</h2>
 <p>An example XML request looks like</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;compile&gt;
@@ -178,11 +108,6 @@
             \input{chapter1.tex}
             \end{document}
         ]&gt;&lt;/resource&gt;
-        &lt;resource
-            path=&quot;chapter1.tex&quot;
-            url=&quot;http://scribtex.github.com/clsi/examples/chapter1.tex&quot;
-            modified=&quot;2012-02-14 12:36:54&quot;&gt;
-        &lt;/resource&gt;
     &lt;/resources&gt;
 &lt;/compile&gt;</code></pre>
 <p>These requests should be sent as POST requests to /compile, e.g.</p>

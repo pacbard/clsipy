@@ -2,8 +2,7 @@
     "title": "Common LaTeX Service Interface Documentation",
     "github": "pacbard/clsipy",
     "codeHighlightTheme": "github",
-    "home": "INDEX.md",
-    "files": ["ACCESS.md", "REQUEST.md", "RESPONSE.md", "ASYNC.md", "INSTALL.md", "LICENSE.md"],
+    "files": ["INDEX.md", "ACCESS.md", "REQUEST.md", "RESPONSE.md", "ASYNC.md", "INSTALL.md", "LICENSE.md"],
     "links": [
         ["View on GitHub", "http://github.com/pacbard/clsipy"]
     ]

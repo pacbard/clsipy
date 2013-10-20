@@ -1,4 +1,4 @@
-# Asynchronous Compiling
+## Asynchronous Compiling
 
 By default the HTTP connection is left open until the compile is
 finished and then the response is returned. While the CLSI is comparatively fast,

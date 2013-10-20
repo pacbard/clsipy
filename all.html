@@ -36,110 +36,40 @@
     <ol>
     
         <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
+            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
             
                 
     <ol>
     
-</ol>
-
+        <li>
+            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
             
         </li>
     
         <li>
             <a href="request.html#request-format">Request Format</a>
             
-                
-    <ol>
-    
-        <li>
-            <a href="request.html#token">Token</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#resources">Resources</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#root-resource-path">Root Resource Path</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#options">Options</a>
-            
-        </li>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="response.html#response-format">Response Format</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="response.html#status">Status</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#errors">Errors</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#compile-id">Compile ID</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#output-files-and-logs">Output Files and Logs</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="async.html#asynchronous-compiling">Asynchronous Compiling</a>
             
-                
-    <ol>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="install.html#installation">Installation</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="install.html#cron">Cron</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="license.html#license">License</a>
             
-                
-    <ol>
+        </li>
     
 </ol>
 
@@ -164,19 +94,19 @@
             <a name="common-latex-service-interface"></a><h1>Common LaTeX Service Interface</h1>
 <p>The Common LaTeX Service Interface (CLSI) is an HTTP RESTful API for compiling LaTeX
 documents online.</p>
-<a name="how-to-get-access"></a><h2>How to get access</h2>
+<a name="how-to-get-access"></a><h3>How to get access</h3>
 <p>To access the CLSI server you will need a developer token. To request a
 token, please email the server maintainer. </p>
-<a name="how-to-report-a-missing-package"></a><h2>How to report a missing package</h2>
+<a name="how-to-report-a-missing-package"></a><h3>How to report a missing package</h3>
 <p>If the CLSI maintainer decided to run a striped-down version of LaTeX,
 it is possible that some packages are not installed by default. Please
 contact the CSLI maintainer for more information regarding missing
 packages.</p>
-<a name="client"></a><h2>Client</h2>
+<a name="client"></a><h3>Client</h3>
 <p>If you are looking for a client to access this CLSI server,
 check out the <a href="http://github.com/pacbard/RLatex">Remote LaTeX</a> client.</p>
 
-<a name="accessing-the-clsi"></a><h1>Accessing the CLSI</h1>
+<a name="accessing-the-clsi"></a><h2>Accessing the CLSI</h2>
 <p>An example XML request looks like</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;compile&gt;
@@ -193,22 +123,17 @@ check out the <a href="http://github.com/pacbard/RLatex">Remote LaTeX</a> client
             \input{chapter1.tex}
             \end{document}
         ]&gt;&lt;/resource&gt;
-        &lt;resource
-            path=&quot;chapter1.tex&quot;
-            url=&quot;http://scribtex.github.com/clsi/examples/chapter1.tex&quot;
-            modified=&quot;2012-02-14 12:36:54&quot;&gt;
-        &lt;/resource&gt;
     &lt;/resources&gt;
 &lt;/compile&gt;</code></pre>
 <p>These requests should be sent as POST requests to /compile, e.g.</p>
 <pre><code>curl --data-binary @request.xml http://clsi.example.com/compile</code></pre>
 <p>Note that XML is assumed to be the default format unless otherwise specified.</p>
 
-<a name="request-format"></a><h1>Request Format</h1>
-<a name="token"></a><h2>Token</h2>
+<a name="request-format"></a><h2>Request Format</h2>
+<a name="token"></a><h3>Token</h3>
 <p>Every request must include your API access token under the <em>token</em> option. This
 can currently only be obtained by an email request to the CLSI owner.</p>
-<a name="resources"></a><h2>Resources</h2>
+<a name="resources"></a><h3>Resources</h3>
 <p>Every request must contain a list of <em>resources</em> (files to included in the
 compilation), containing at least one resource. Resources must have a <em>path</em>
 attribute, and either a <em>content</em> or an <em>url</em> attribute. For XML requests, the
@@ -236,12 +161,12 @@ redownloaded if the modified date is ahead of the previously supplied modified
 date). If no modified date is provided, a cached version of the URL will
 always be used where available.</li>
 </ul>
-<a name="root-resource-path"></a><h2>Root Resource Path</h2>
+<a name="root-resource-path"></a><h3>Root Resource Path</h3>
 <p>This specifies the main file which LaTeX should be run on. LaTeX will
 be called with something like</p>
 <pre><code>latex &lt;root-resource-path&gt;</code></pre>
 <p>The root resource path defaults to &quot;main.tex&quot;.</p>
-<a name="options"></a><h2>Options</h2>
+<a name="options"></a><h3>Options</h3>
 <p>The CLSI provides multiple compilers and output formats which can be specified
 in the options section.</p>
 <p>The request may contain an optional options block:</p>
@@ -260,7 +185,7 @@ in the options section.</p>
 the CLSI will use <code>pdflatex</code> as compiler and <code>pdf</code> as output format. For this
 reason, most user will not need to specify a compiler or output formats.</p>
 
-<a name="response-format"></a><h1>Response Format</h1>
+<a name="response-format"></a><h2>Response Format</h2>
 <p>The response follows a similar schema to the request, and is returned in the
 same format as the request. An example XML response is:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -273,7 +198,7 @@ same format as the request. An example XML response is:</p>
     &lt;file type=&quot;log&quot; url=&quot;http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.log&quot; mimetype=&quot;text/plain&quot;/&gt;
   &lt;/logs&gt;
 &lt;/compile&gt;</code></pre>
-<a name="status"></a><h2>Status</h2>
+<a name="status"></a><h3>Status</h3>
 <p>The status can be either:</p>
 <ul>
 <li><em>success</em> - The compile ran successfully and an output document was produced.</li>
@@ -282,7 +207,7 @@ output. More information is given in the <em>error</em> attribute explained belo
 <li><em>compiling</em> - The compile has not yet finished. See <em>Asynchronous Compiling</em>
 below.</li>
 </ul>
-<a name="errors"></a><h2>Errors</h2>
+<a name="errors"></a><h3>Errors</h3>
 <p>If there was a problem with the request, or the compile was unable to run for
 some reason, the response will contain an error section:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -306,11 +231,11 @@ some reason, the response will contain an error section:</p>
 <li><em>NoOutputProduced</em> - The compile did not produce any output, most likely due to a problem with your LaTeX syntax. See the returned log for more details</li>
 <li><em>Timeout</em> - Part of the compiler process took too long to do and was aborted. Do you have server destroying infinite loops in your LaTeX?</li>
 </ul>
-<a name="compile-id"></a><h2>Compile ID</h2>
+<a name="compile-id"></a><h3>Compile ID</h3>
 <p>Each request is given a unique ID which is returned as the <em>compile_id</em>
 attribute. This can be used to later refer to the same compile. This is mainly
 useful when compiling asynchronously (see below).</p>
-<a name="output-files-and-logs"></a><h2>Output Files and Logs</h2>
+<a name="output-files-and-logs"></a><h3>Output Files and Logs</h3>
 <p>Any output files and logs which are produced are returned in the <em>output_files</em>
 and <em>logs</em> attributes respectively. These are collections of items with the
 following properites:</p>
@@ -319,7 +244,7 @@ following properites:</p>
 <li><em>log</em> -  LaTeX log file. This will be always be returned by the server regardless of the compilation status.</li>
 </ul>
 
-<a name="asynchronous-compiling"></a><h1>Asynchronous Compiling</h1>
+<a name="asynchronous-compiling"></a><h2>Asynchronous Compiling</h2>
 <p>By default the HTTP connection is left open until the compile is
 finished and then the response is returned. While the CLSI is comparatively fast,
 compiling a LaTeX document can still take a long time and this can leave you
@@ -353,21 +278,21 @@ output files will be listed when they are available.</p>
 <p>We recommend polling at progressively longer intervals, e.g. 0.2s, 0.4s, 0.8s,
 1.6s, 3.2s.</p>
 
-<a name="installation"></a><h1>Installation</h1>
+<a name="installation"></a><h2>Installation</h2>
 <p>To install, just create a new gear with the following commands:</p>
 <pre><code>rhc app create clsi -t python-2.6
 cd clsi
 git remote add upstream -m master https://github.com/pacbard/clsipy.git
 git pull -s recursive -X theirs upstream master
 git push</code></pre>
-<a name="cron"></a><h2>Cron</h2>
+<a name="cron"></a><h3>Cron</h3>
 <p>Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4 folder to your application with the command</p>
 <pre><code>rhc cartridge add cron-1.4 -a clsi</code></pre>
 <p>and push your app.</p>
 
-<a name="license"></a><h1>License</h1>
+<a name="license"></a><h2>License</h2>
 <p>The MIT License (MIT)</p>
-<p>Copyright (c) 2013 Emanuele Bardelli <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x62;&#97;&#x72;&#100;&#x65;&#108;&#x6c;&#x69;&#101;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">&#x62;&#97;&#x72;&#100;&#x65;&#108;&#x6c;&#x69;&#101;&#64;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>Copyright (c) 2013 Emanuele Bardelli <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#98;&#x61;&#x72;&#100;&#101;&#x6c;&#108;&#x69;&#x65;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#98;&#x61;&#x72;&#100;&#101;&#x6c;&#108;&#x69;&#x65;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
 the Software without restriction, including without limitation the rights to

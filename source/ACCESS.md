@@ -1,4 +1,4 @@
-# Accessing the CLSI
+## Accessing the CLSI
 
 An example XML request looks like
 
@@ -17,11 +17,6 @@ An example XML request looks like
                 \input{chapter1.tex}
                 \end{document}
             ]></resource>
-            <resource
-                path="chapter1.tex"
-                url="http://scribtex.github.com/clsi/examples/chapter1.tex"
-                modified="2012-02-14 12:36:54">
-            </resource>
         </resources>
     </compile>
 

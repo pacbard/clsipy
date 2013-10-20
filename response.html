@@ -36,110 +36,40 @@
     <ol>
     
         <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
+            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
             
                 
     <ol>
     
-</ol>
-
+        <li>
+            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
             
         </li>
     
         <li>
             <a href="request.html#request-format">Request Format</a>
             
-                
-    <ol>
-    
-        <li>
-            <a href="request.html#token">Token</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#resources">Resources</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#root-resource-path">Root Resource Path</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#options">Options</a>
-            
-        </li>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="response.html#response-format">Response Format</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="response.html#status">Status</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#errors">Errors</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#compile-id">Compile ID</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#output-files-and-logs">Output Files and Logs</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="async.html#asynchronous-compiling">Asynchronous Compiling</a>
             
-                
-    <ol>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="install.html#installation">Installation</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="install.html#cron">Cron</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="license.html#license">License</a>
             
-                
-    <ol>
+        </li>
     
 </ol>
 
@@ -161,7 +91,7 @@
 </div>
 
         <div id="content">
-            <a name="response-format"></a><h1>Response Format</h1>
+            <a name="response-format"></a><h2>Response Format</h2>
 <p>The response follows a similar schema to the request, and is returned in the
 same format as the request. An example XML response is:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -174,7 +104,7 @@ same format as the request. An example XML response is:</p>
     &lt;file type=&quot;log&quot; url=&quot;http://clsi.example.com/download/042621e09d8b6fdf9ceaa3c223827/test.log&quot; mimetype=&quot;text/plain&quot;/&gt;
   &lt;/logs&gt;
 &lt;/compile&gt;</code></pre>
-<a name="status"></a><h2>Status</h2>
+<a name="status"></a><h3>Status</h3>
 <p>The status can be either:</p>
 <ul>
 <li><em>success</em> - The compile ran successfully and an output document was produced.</li>
@@ -183,7 +113,7 @@ output. More information is given in the <em>error</em> attribute explained belo
 <li><em>compiling</em> - The compile has not yet finished. See <em>Asynchronous Compiling</em>
 below.</li>
 </ul>
-<a name="errors"></a><h2>Errors</h2>
+<a name="errors"></a><h3>Errors</h3>
 <p>If there was a problem with the request, or the compile was unable to run for
 some reason, the response will contain an error section:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -207,11 +137,11 @@ some reason, the response will contain an error section:</p>
 <li><em>NoOutputProduced</em> - The compile did not produce any output, most likely due to a problem with your LaTeX syntax. See the returned log for more details</li>
 <li><em>Timeout</em> - Part of the compiler process took too long to do and was aborted. Do you have server destroying infinite loops in your LaTeX?</li>
 </ul>
-<a name="compile-id"></a><h2>Compile ID</h2>
+<a name="compile-id"></a><h3>Compile ID</h3>
 <p>Each request is given a unique ID which is returned as the <em>compile_id</em>
 attribute. This can be used to later refer to the same compile. This is mainly
 useful when compiling asynchronously (see below).</p>
-<a name="output-files-and-logs"></a><h2>Output Files and Logs</h2>
+<a name="output-files-and-logs"></a><h3>Output Files and Logs</h3>
 <p>Any output files and logs which are produced are returned in the <em>output_files</em>
 and <em>logs</em> attributes respectively. These are collections of items with the
 following properites:</p>

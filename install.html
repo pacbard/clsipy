@@ -36,110 +36,40 @@
     <ol>
     
         <li>
-            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
+            <a href="index.html#common-latex-service-interface">Common LaTeX Service Interface</a>
             
                 
     <ol>
     
-</ol>
-
+        <li>
+            <a href="access.html#accessing-the-clsi">Accessing the CLSI</a>
             
         </li>
     
         <li>
             <a href="request.html#request-format">Request Format</a>
             
-                
-    <ol>
-    
-        <li>
-            <a href="request.html#token">Token</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#resources">Resources</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#root-resource-path">Root Resource Path</a>
-            
-        </li>
-    
-        <li>
-            <a href="request.html#options">Options</a>
-            
-        </li>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="response.html#response-format">Response Format</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="response.html#status">Status</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#errors">Errors</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#compile-id">Compile ID</a>
-            
-        </li>
-    
-        <li>
-            <a href="response.html#output-files-and-logs">Output Files and Logs</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="async.html#asynchronous-compiling">Asynchronous Compiling</a>
             
-                
-    <ol>
-    
-</ol>
-
-            
         </li>
     
         <li>
             <a href="install.html#installation">Installation</a>
-            
-                
-    <ol>
-    
-        <li>
-            <a href="install.html#cron">Cron</a>
-            
-        </li>
-    
-</ol>
-
             
         </li>
     
         <li>
             <a href="license.html#license">License</a>
             
-                
-    <ol>
+        </li>
     
 </ol>
 
@@ -161,14 +91,14 @@
 </div>
 
         <div id="content">
-            <a name="installation"></a><h1>Installation</h1>
+            <a name="installation"></a><h2>Installation</h2>
 <p>To install, just create a new gear with the following commands:</p>
 <pre><code>rhc app create clsi -t python-2.6
 cd clsi
 git remote add upstream -m master https://github.com/pacbard/clsipy.git
 git pull -s recursive -X theirs upstream master
 git push</code></pre>
-<a name="cron"></a><h2>Cron</h2>
+<a name="cron"></a><h3>Cron</h3>
 <p>Cron can be used to clean up the compiled folder once a day. Just add a cron-1.4 folder to your application with the command</p>
 <pre><code>rhc cartridge add cron-1.4 -a clsi</code></pre>
 <p>and push your app.</p>
