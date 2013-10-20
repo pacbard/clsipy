@@ -36,7 +36,7 @@ attribute. More information about each attribute is given below:
 
 ### Enconding files using Base64
 
-(Base64)[http://en.wikipedia.org/wiki/Base64] can be used to encode binary files or text files that are not encoded
+[Base64](http://en.wikipedia.org/wiki/Base64) can be used to encode binary files or text files that are not encoded
 using ```utf-8```. 
 
 For example, this image
