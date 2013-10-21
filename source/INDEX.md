@@ -9,7 +9,7 @@ token, please email the server maintainer.
 ### How to report a missing package
 If the CLSI maintainer decided to run a striped-down version of LaTeX,
 it is possible that some packages are not installed by default. Please
-contact the CSLI maintainer for more information regarding missing
+contact the CSLI maintainer for more information regarding available
 packages.
 
 ### Client

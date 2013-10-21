@@ -26,7 +26,7 @@ documentTitles["index.html#how-to-report-a-missing-package"] = "How to report a 
 index.add({
     url: "index.html#how-to-report-a-missing-package",
     title: "How to report a missing package",
-    body: "### How to report a missing package If the CLSI maintainer decided to run a striped-down version of LaTeX, it is possible that some packages are not installed by default. Please contact the CSLI maintainer for more information regarding missing packages.  "
+    body: "### How to report a missing package If the CLSI maintainer decided to run a striped-down version of LaTeX, it is possible that some packages are not installed by default. Please contact the CSLI maintainer for more information regarding available packages.  "
 });
 
 documentTitles["index.html#client"] = "Client";
