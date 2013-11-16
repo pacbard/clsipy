@@ -1,9 +1,10 @@
 import base64
-from subprocess import call
 from os.path import abspath, dirname, join
 import sys, os
 import uuid
 import shutil
+import untangle
+import subprocess, threading
 
 # missing module fix
 sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
@@ -15,13 +16,34 @@ try:
 except:
     pass
 
-import untangle
-
 # env variables
 TMP = os.environ['CLSI_TMP']
 PUBLIC = os.environ['CLSI_PUBLIC']
 DATA = os.environ['CLSI_DATA']
 BIN = os.environ['CLSI_BIN']
+
+class Command(object):
+    # From:
+    # http://stackoverflow.com/questions/1191374/subprocess-with-timeout/4825933#4825933
+    def __init__(self, cmd):
+        self.cmd = cmd
+        self.process = None
+
+    def run(self, timeout):
+        def target():
+            print 'Thread started'
+            self.process = subprocess.Popen(self.cmd, shell=True)
+            self.process.communicate()
+            print 'Thread finished'
+
+        thread = threading.Thread(target=target)
+        thread.start()
+
+        thread.join(timeout)
+        if thread.is_alive():
+            print 'Terminating process'
+            self.process.terminate()
+            thread.join()
 
 class clsi:
     def __init__(self):
@@ -56,11 +78,13 @@ class clsi:
 
     def run(self, file):
         dir = os.path.dirname(file)+"/"
-
+        
         if self.compiler == "arara":
-            call("PATH=${PATH}:"+ BIN +" && cd "+ dir  +" &&  arara "+ file, shell=True)
+            cmd = Command("PATH=${PATH}:"+ BIN +"; cd "+ dir  +";  arara "+ file)
         else:
-            call("PATH=${PATH}:"+ BIN +" && cd "+ dir  +" &&  "+ self.compiler +" -output-directory="+ dir +" "+ file, shell=True)
+            cmd = Command("PATH=${PATH}:"+ BIN +"; cd "+ dir  +";  "+ self.compiler +" -output-directory="+ dir +" "+ file)
+
+        cmd.run(timeout = 30)
 
         log, out = self._move_results(file)
         self._rm_tmp()
