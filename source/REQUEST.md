@@ -86,3 +86,12 @@ where you can specify the compiler to use, and the output format. Possible compi
 If the compiler and/or the output format are not specified as arguments,
 the CLSI will use ```pdflatex``` as compiler and ```pdf``` as output format. For this
 reason, most user will not need to specify a compiler or output formats.
+
+### TeX automation tools
+The CLIS sever supports both latexmk and arara by using 
+
+* <code>latexmk</code>
+* <code>arara</code>
+
+as compiler in the request. The CLSI server will compile the file using one 
+of the two engines and will return the requested file.

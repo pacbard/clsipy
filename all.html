@@ -198,6 +198,14 @@ in the options section.</p>
 <p>If the compiler and/or the output format are not specified as arguments,
 the CLSI will use <code>pdflatex</code> as compiler and <code>pdf</code> as output format. For this
 reason, most user will not need to specify a compiler or output formats.</p>
+<a name="tex-automation-tools"></a><h3>TeX automation tools</h3>
+<p>The CLIS sever supports both latexmk and arara by using </p>
+<ul>
+<li><code>latexmk</code></li>
+<li><code>arara</code></li>
+</ul>
+<p>as compiler in the request. The CLSI server will compile the file using one 
+of the two engines and will return the requested file.</p>
 
 <a name="response-format"></a><h2>Response Format</h2>
 <p>The response follows a similar schema to the request, and is returned in the
@@ -308,7 +316,7 @@ git push</code></pre>
 
 <a name="license"></a><h2>License</h2>
 <p>The MIT License (MIT)</p>
-<p>Copyright (c) 2013 Emanuele Bardelli <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x62;&#97;&#114;&#100;&#x65;&#108;&#108;&#x69;&#x65;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x62;&#97;&#114;&#100;&#x65;&#108;&#108;&#x69;&#x65;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p>Copyright (c) 2013 Emanuele Bardelli <a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#98;&#x61;&#x72;&#100;&#x65;&#108;&#108;&#x69;&#x65;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;">&#98;&#x61;&#x72;&#100;&#x65;&#108;&#108;&#x69;&#x65;&#x40;&#103;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#111;&#109;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the &quot;Software&quot;), to deal in
 the Software without restriction, including without limitation the rights to

@@ -86,7 +86,14 @@ documentTitles["request.html#options"] = "Options";
 index.add({
     url: "request.html#options",
     title: "Options",
-    body: "### Options  The CLSI provides multiple compilers and output formats which can be specified in the options section.  The request may contain an optional options block:          &lt;options&gt;         &lt;compiler&gt;latex&lt;/compiler&gt;         &lt;output-format&gt;ps&lt;/output-format&gt;     &lt;/options&gt;  where you can specify the compiler to use, and the output format. Possible compilers are:  * &lt;code&gt;pdflatex&lt;/code&gt; - possible output formats: pdf * &lt;code&gt;latex&lt;/code&gt; - possible output formats: dvi, ps, pdf * &lt;code&gt;xelatex&lt;/code&gt; - possible output formats: pdf * &lt;code&gt;lualatex&lt;/code&gt; - possible output formats: pdf  If the compiler and/or the output format are not specified as arguments, the CLSI will use ```pdflatex``` as compiler and ```pdf``` as output format. For this reason, most user will not need to specify a compiler or output formats. "
+    body: "### Options  The CLSI provides multiple compilers and output formats which can be specified in the options section.  The request may contain an optional options block:          &lt;options&gt;         &lt;compiler&gt;latex&lt;/compiler&gt;         &lt;output-format&gt;ps&lt;/output-format&gt;     &lt;/options&gt;  where you can specify the compiler to use, and the output format. Possible compilers are:  * &lt;code&gt;pdflatex&lt;/code&gt; - possible output formats: pdf * &lt;code&gt;latex&lt;/code&gt; - possible output formats: dvi, ps, pdf * &lt;code&gt;xelatex&lt;/code&gt; - possible output formats: pdf * &lt;code&gt;lualatex&lt;/code&gt; - possible output formats: pdf  If the compiler and/or the output format are not specified as arguments, the CLSI will use ```pdflatex``` as compiler and ```pdf``` as output format. For this reason, most user will not need to specify a compiler or output formats.  "
+});
+
+documentTitles["request.html#tex-automation-tools"] = "TeX automation tools";
+index.add({
+    url: "request.html#tex-automation-tools",
+    title: "TeX automation tools",
+    body: "### TeX automation tools The CLIS sever supports both latexmk and arara by using   * &lt;code&gt;latexmk&lt;/code&gt; * &lt;code&gt;arara&lt;/code&gt;  as compiler in the request. The CLSI server will compile the file using one  of the two engines and will return the requested file. "
 });
 
 

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-for f in *.html
-do
-    tidy -m $f;
-done
