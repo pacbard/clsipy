@@ -57,7 +57,10 @@ class clsi:
     def run(self, file):
         dir = os.path.dirname(file)+"/"
 
-        call("PATH=${PATH}:"+ BIN +" && cd "+ dir  +" &&  "+ self.compiler +" -output-directory="+ dir +" "+ file, shell=True)
+        if self.compiler == "arara":
+            call("PATH=${PATH}:"+ BIN +" && cd "+ dir  +" &&  arara "+ file, shell=True)
+        else:
+            call("PATH=${PATH}:"+ BIN +" && cd "+ dir  +" &&  "+ self.compiler +" -output-directory="+ dir +" "+ file, shell=True)
 
         log, out = self._move_results(file)
         self._rm_tmp()
