@@ -151,6 +151,13 @@ index.add({
     body: "## Installation To install, just create a new gear with the following commands:      rhc app create clsi -t python-2.6     cd clsi     git remote add upstream -m master https://github.com/pacbard/clsipy.git     git pull -s recursive -X theirs upstream master     git push  "
 });
 
+documentTitles["install.html#token"] = "Token";
+index.add({
+    url: "install.html#token",
+    title: "Token",
+    body: "## Token Create the token using this command      rhc env set CLSI_TOKEN=your_token  Use your token to access the server  "
+});
+
 documentTitles["install.html#cron"] = "Cron";
 index.add({
     url: "install.html#cron",

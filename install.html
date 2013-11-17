@@ -47,6 +47,7 @@ Format</a></li>
 <li><a href="async.html#asynchronous-compilation">Asynchronous
 Compilation</a></li>
 <li><a href="install.html#installation">Installation</a></li>
+<li><a href="install.html#token">Token</a></li>
 <li><a href="license.html#license">License</a></li>
 </ol>
 </li>
@@ -70,6 +71,13 @@ git remote add upstream -m master https://github.com/pacbard/clsipy.git
 git pull -s recursive -X theirs upstream master
 git push</code>
 </pre>
+<a name="token" id="token"></a>
+<h2>Token</h2>
+<p>Create the token using this command</p>
+<pre>
+<code>rhc env set CLSI_TOKEN=your_token</code>
+</pre>
+<p>Use your token to access the server</p>
 <a name="cron" id="cron"></a>
 <h3>Cron</h3>
 <p>Cron can be used to clean up the compiled folder once a day.
