@@ -32,9 +32,14 @@ class Command(object):
     def run(self, timeout):
         def target():
             print 'Thread started'
-            self.process = subprocess.Popen(self.cmd, shell=True)
-            self.process.communicate()
+            self.process = subprocess.Popen(self.cmd, shell=True
+                                                    , stdout=subprocess.PIPE
+                                                    , stderr=subprocess.STDOUT
+                                                    )
             print 'Thread finished'
+            out, err = self.process.communicate()
+            print(out)
+
 
         thread = threading.Thread(target=target)
         thread.start()
