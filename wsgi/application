@@ -16,10 +16,6 @@ import web
 from cgi import parse_qs, escape
 import utilities
 
-#DOtcloud
-#HOME = os.getenv('DOTCLOUD_PYTHON_HTTP_URL', 'http://clsi-pacbard.dotcloud.com/')
-#DIR = '/home/dotcloud/current/'
-#Openshift
 HOME = 'http://'+os.environ['OPENSHIFT_APP_DNS']+'/'
 DIR = os.environ['OPENSHIFT_REPO_DIR']+'wsgi/'
 
@@ -72,6 +68,7 @@ class display:
             f = open(DIR+'static/display.html', 'r')
             web.header('Content-Type', 'text/html')
             return f.read()
+            #return to_compile
 
 class example:
     def GET(self):
@@ -98,3 +95,4 @@ application = app.wsgifunc() # Runs the app with wsgi
 
 if __name__ == '__main__':
     app.run()
+

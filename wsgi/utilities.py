@@ -5,6 +5,7 @@ import sys, os
 import uuid
 import shutil
 import cgi
+import urllib
 
 # missing module fix
 sys.path.append(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'wsgi'))
@@ -69,26 +70,28 @@ class clsi:
 
     def webget(self, data):
         reqid = data.reqid # Returns reqid value
-        latex =  data.latex
+        latex =  str(data.latex)
+        latex = urllib.unquote(latex).decode('string-escape')
         to_compile = self.tmp + reqid
         # Writes the files to disk
         if not os.path.exists(self.tmp):
            os.makedirs(self.tmp)
         f = open(self.tmp+reqid, 'w')
         #set standard document environment
-        latex="""\documentclass[convert={density=300,size=1080x800,outext=.png}]{standalone}
+        latex=r"""\documentclass[varwidth]{standalone}
 \usepackage{graphicx}    % needed for including graphics e.g. EPS, PS
 \usepackage[italian, english]{babel}
 \usepackage{hyperref}
 \usepackage{floatrow}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\\begin{document}
+\begin{document}
 """+latex+"""
 \end{document}
 """
         f.write(latex.encode('utf-8'))
         return(to_compile)
+        #return(latex)
 
 
     def pdftopng(self, file, density):
@@ -137,4 +140,3 @@ class clsi:
         if os.path.isdir(self.tmp):
             shutil.rmtree(self.tmp)
         
-

@@ -6,16 +6,20 @@ documents. Requests can be sent in 'XML' or via 'GET method'
 This is an implementation of a Common Latex Server Interface (CLSI) using an OpenShift Python gear.
 
 #New
-To get a small latex code compiled as a .png picture just embed a new picture with:
-~~~~~~~~~~~~~~~~
-<img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code">
-~~~~~~~~~~~~~~~~
+
+A new php+jquery package has been developed at https://github.com/Anze-/PLATECH. We suggest to check it out! It permits it embed latech code just using a <latex> html tag! It also caches pictures on your server to get much shorter page loading times!
 
 Now a parameter to control the picture density is allowed, it goes from 6 to 3000 where the default value is 600 and is assigned this way:
 
 ~~~~~~~~~~~~~~~~
 <img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code&density=600">
 ~~~~~~~~~~~~~~~~
+
+To get a small latex code compiled as a .png picture just embed a new picture with:
+~~~~~~~~~~~~~~~~
+<img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code">
+~~~~~~~~~~~~~~~~
+
 # Installation
 To install, just create a new gear with the following commands:
 
@@ -73,12 +77,7 @@ Note that XML is assumed to be the default format unless otherwise specified.
 
 Request Format
 ==============
-
-Token
------
-
-Every request must include your API access token under the _token_ option. This
-can currently only be obtained by an email request to the CLSI owner.
+Token is suspended 
 
 Resources
 ---------
