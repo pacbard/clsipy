@@ -7,15 +7,17 @@ This is an implementation of a Common Latex Server Interface (CLSI) using an Ope
 
 #New
 
-A new php+jquery package has been developed at https://github.com/Anze-/PLATECH. We suggest to check it out! It permits it embed latech code just using a <latex> html tag! It also caches pictures on your server to get much shorter page loading times!
++Now this repo is related to a major project, [go to the homepage!](http://anze-.github.io/clsipy/)
 
-Now a parameter to control the picture density is allowed, it goes from 6 to 3000 where the default value is 600 and is assigned this way:
++A new php+jquery package has been developed at https://github.com/Anze-/PLATECH. We suggest to check it out! It permits it embed latech code just using a <latex> html tag! It also caches pictures on your server to get much shorter page loading times!
+
++Now a parameter to control the picture density is allowed, it goes from 6 to 3000 where the default value is 600 and is assigned this way:
 
 ~~~~~~~~~~~~~~~~
 <img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code&density=600">
 ~~~~~~~~~~~~~~~~
 
-To get a small latex code compiled as a .png picture just embed a new picture with:
++To get a small latex code compiled as a .png picture just embed a new picture with:
 ~~~~~~~~~~~~~~~~
 <img src="you_domain/display?reqid=a_pic_name&latex=your_latex_code">
 ~~~~~~~~~~~~~~~~
