@@ -7,6 +7,8 @@ This is an implementation of a Common Latex Server Interface (CLSI) using an Ope
 
 #New
 
++BUG REPORT: problem in compiling latex code with underscores using the display methot
+
 +Now this repo is related to a major project, [go to the homepage!](http://anze-.github.io/clsipy/)
 
 +A new php+jquery package has been developed at https://github.com/Anze-/PLATECH. We suggest to check it out! It permits it embed latech code just using a <latex> html tag! It also caches pictures on your server to get much shorter page loading times!
